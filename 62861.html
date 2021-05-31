@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java虚拟机JVM | Kylin</title><meta name="keywords" content="Java,JVM"><meta name="author" content="Kylin"><meta name="copyright" content="Kylin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="虚拟机所谓虚拟机（Virtual Machine），就是一台虚拟的机器。它是一款软件，用来执行一系列虚拟计算机指令，大体上虚拟机可以分为系统虚拟机和程序虚拟机。  大名鼎鼎的Visual Box、VMare就属于系统虚拟机，他们完全对物理计算机的仿真，提供了一个可运行完整操作系统的软件平台。  程序虚拟机典型代表就是Java虚拟机，它专门为执行单个计算机程序而设计，在Java虚拟机中执行的指令我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java虚拟机JVM">
+<meta property="og:url" content="https://www.kylin.show/62861.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:description" content="虚拟机所谓虚拟机（Virtual Machine），就是一台虚拟的机器。它是一款软件，用来执行一系列虚拟计算机指令，大体上虚拟机可以分为系统虚拟机和程序虚拟机。  大名鼎鼎的Visual Box、VMare就属于系统虚拟机，他们完全对物理计算机的仿真，提供了一个可运行完整操作系统的软件平台。  程序虚拟机典型代表就是Java虚拟机，它专门为执行单个计算机程序而设计，在Java虚拟机中执行的指令我们">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nzj88g.jpg">
+<meta property="article:published_time" content="2020-10-02T13:07:41.000Z">
+<meta property="article:modified_time" content="2020-10-04T06:55:46.000Z">
+<meta property="article:author" content="Kylin">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="JVM">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nzj88g.jpg"><link rel="shortcut icon" href="https://gitee.com/kylincw/images/raw/master/img/20200807181548.png"><link rel="canonical" href="https://www.kylin.show/62861"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><meta name="google-site-verification" content="gzeyWstt6NoTZKh7YFYNLNziL8HIZ8YH2Ug7xTDX5-Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f76c34daefe747deee7c7be3ead2ba80";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-159334016-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-159334016-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"自上次更新以来已经","messageNext":"天，文章的内容可能已过时或存在差异。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50000,"languages":{"author":"作者: Kylin","link":"链接: ","source":"来源: Kylin","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FF0000","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-10-04 14:55:46'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1993646_z05rabxf05h.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/icon.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Kylin" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nzj88g.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kylin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java虚拟机JVM</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-10-02T13:07:41.000Z" title="发表于 2020-10-02 21:07:41">2020-10-02</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-10-04T06:55:46.000Z" title="更新于 2020-10-04 14:55:46">2020-10-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/">Java</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Java/JVM/">JVM</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>3分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="虚拟机"><a href="#虚拟机" class="headerlink" title="虚拟机"></a>虚拟机</h2><p>所谓<strong>虚拟机</strong>（Virtual Machine），就是一台虚拟的机器。它是一款软件，用来执行一系列虚拟计算机指令，大体上虚拟机可以分为<strong>系统虚拟机</strong>和<strong>程序虚拟机</strong>。</p>
+<ul>
+<li><p>大名鼎鼎的Visual Box、VMare就属于系统虚拟机，他们完全对物理计算机的仿真，提供了一个可运行完整操作系统的软件平台。</p>
+</li>
+<li><p>程序虚拟机典型代表就是Java虚拟机，<strong>它专门为执行单个计算机程序而设计，在Java虚拟机中执行的指令我们称为Java字节码指令。</strong></p>
+</li>
+</ul>
+<p>无论是系统虚拟机还是程序虚拟机，在上面运行的软件都被限制于虚拟机提供的资源中。</p>
+<h2 id="Java虚拟机"><a href="#Java虚拟机" class="headerlink" title="Java虚拟机"></a>Java虚拟机</h2><ul>
+<li>Java虚拟机是一台执行Java字节码的虚拟计算机,它拥有独立的运行机制,其运行的Java字节码也未必由Java语言编译而成。</li>
+<li>JVM平台的各种语言可以共享Java虚拟机带来的跨平台性、优秀的垃圾回收器,以及可靠的即时编译器。</li>
+<li><code>Java技术的核心就是Java虚拟机</code>(JVM,Java Virtual Machine),因为所有的Java程序都运行在Java虚拟机内部。</li>
+</ul>
+<p><code>HotSpot VM</code>是目前市面上高性能虚拟机的代表作之一。它采用解释器与即时编译器并存的架构。在今天，Java程序的运行性能早已脱胎换骨，已经达到类可以和C/C++程序一较高下的地步。</p>
+<p><strong>Java虚拟机根本不关心运行在其内部的程序到底是使用何种编程语言编写的，它只关心“字节码”文件。也就是说Java虚拟机拥有语言无关性。</strong></p>
+<p>Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制文件格式Class文件格式所关联，Class文件中包含了Java虚拟机指令集（或者称为字节码、Bytecodes）和符号表，还有一些其他辅助信息。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20201003093845.png" alt="JVM语言无关性"></p>
+<h3 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h3><p><code>Java虚拟机就是二进制字节码的运行环境</code>,负责装在字节码到其内部,解释/编译为对应平台上的机器指令执行。每一条Java指令,Java虚拟机规范中都有详细定义,如怎么取操作数,怎么处理操作数,处理结果放在哪里。</p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>一次编译,到处运行</li>
+<li>自动内存管理</li>
+<li>自动垃圾回收功能</li>
+</ul>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20201002215742.png" alt="Java语言跨平台性"></p>
+<h3 id="位置"><a href="#位置" class="headerlink" title="位置"></a>位置</h3><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20201002213206.png" alt="image-20201002213205013"></p>
+<p>JVM是运行在操作系统之上的，它与硬件没有直接的交互。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20201002212112.jpg" alt="img"></p>
+<h2 id="JVM的整体结构"><a href="#JVM的整体结构" class="headerlink" title="JVM的整体结构"></a>JVM的整体结构</h2><p>简图</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20201002213551.png" alt="JVM内存模型"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20201004145512.png" alt="JVM架构模型"></p>
+<h2 id="JVM架构模型"><a href="#JVM架构模型" class="headerlink" title="JVM架构模型"></a>JVM架构模型</h2><p><strong><mark>Java编译器输入的指令流基本上是一种基于栈的指令集架构</mark></strong>，另外一种指令集架构则是基于寄存器的指令集架构。</p>
+<p>具体来说这两种架构的区别：</p>
+<p><strong>基于栈式架构的特点：</strong></p>
+<ol>
+<li>设计和实现更简单，适用于资源受限的系统</li>
+<li>避开了寄存器的分配难题，使用零地址指令方式分配</li>
+<li>指令流中的指令大部分是零地址指令，其执行过程依赖于操作栈，指令集更小，编译器容易实现</li>
+<li>不需要硬件支持，可移植性更好，更好实现跨平台</li>
+</ol>
+<p><strong>基于寄存器架构的特点：</strong></p>
+<ol>
+<li>典型的应用是x86的二进制指令集，不如传统的PC以及Android的Davlik虚拟机</li>
+<li>指令集架构则完全依赖硬件，可移植性差</li>
+<li>性能优秀和执行更高效</li>
+<li>花费更少的指令去完成一项操作</li>
+<li>在大部分情况下，基于寄存器架构的指令往往都以一地址指令、二地址指令、三地址指令为主，而基于栈式架构的指令集却是以零地址指令为主</li>
+</ol>
+<p>由于跨平台性的设计，Java的指令都是根据栈来设计的。不同平台CPU架构不同，所以不能设计为基于寄存器的。优点是跨平台，指令集小，编译器容易实现，缺点是性能下降，实现同样的功能需要更多的指令。</p>
+<h2 id="JVM的生命周期"><a href="#JVM的生命周期" class="headerlink" title="JVM的生命周期"></a>JVM的生命周期</h2><h3 id="虚拟机的启动"><a href="#虚拟机的启动" class="headerlink" title="虚拟机的启动"></a>虚拟机的启动</h3><p>Java虚拟机的启动是通过引导类加载器(bootstrap class loader)创建一个初始类(initial class)来完成的，这个类是由虚拟机具体实现指定的。</p>
+<h3 id="虚拟机的执行"><a href="#虚拟机的执行" class="headerlink" title="虚拟机的执行"></a>虚拟机的执行</h3><p>一个运行中的Java虚拟机有着一个清晰的任务：执行Java程序。</p>
+<p>程序开始执行时它才运行，程序结束时它就停止。</p>
+<p><strong>执行一个所谓的Java程序的时候，真真正正在执行的是一个叫Java虚拟机的进程。</strong></p>
+<h3 id="虚拟机的退出"><a href="#虚拟机的退出" class="headerlink" title="虚拟机的退出"></a>虚拟机的退出</h3><ul>
+<li>程序正常执行结束</li>
+<li>程序在执行过程中遇到了异常或错误而异常终止</li>
+<li>由于操作系统出现错误而导致Java虚拟机进程终止</li>
+<li>某线程调用Runtime类或System类的exit方法，或Runtime类的halt方法，并且Java安全管理器也允许这次exit或halt操作。</li>
+<li>除此之外，JNI（Java Native Interfac）规范描述了用JNI Invocation API来加载或卸载Java虚拟机时，Java虚拟机的退出情况。</li>
+</ul>
+<p>halt停止、停下、阻止。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kylin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.kylin.show/62861.html">https://www.kylin.show/62861.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.kylin.show" target="_blank">Kylin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Java/">Java</a><a class="post-meta__tags" href="/tags/JVM/">JVM</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nzj88g.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/31140.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/deepin-4.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">JVM类加载子系统</div></div></a></div><div class="next-post pull-right"><a href="/26879.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-49m1ek.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java之注解</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/57124.html" title="JVM本地方法接口"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面9.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-06</div><div class="title">JVM本地方法接口</div></div></a></div><div><a href="/49112.html" title="JVM本地方法栈"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-1j66e3.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-06</div><div class="title">JVM本地方法栈</div></div></a></div><div><a href="/31722.html" title="JVM程序计数器"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面10.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-05</div><div class="title">JVM程序计数器</div></div></a></div><div><a href="/14679.html" title="JVM运行时数据区概述"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-eorjzk.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-05</div><div class="title">JVM运行时数据区概述</div></div></a></div><div><a href="/19828.html" title="JVM逃逸分析"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/暗红圆.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-13</div><div class="title">JVM逃逸分析</div></div></a></div><div><a href="/36436.html" title="JVM堆内存"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img//img20200824151925.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-10-12</div><div class="title">JVM堆内存</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Kylin</div><div class="author-info__description">学习不易，努力努力~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div><a class="button--animated" id="card-info-btn"><i class="fas fa-bookmark"></i><span>加入书签</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kylincw" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=171346168&amp;Service=300&amp;sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="qq"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/53836035" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="mailto:zhang171346168@qq.com" target="_blank" title="Email"><i class="iconfont icon-email1"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">学习不易，努力努力！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">1.</span> <span class="toc-text">虚拟机</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Java%E8%99%9A%E6%8B%9F%E6%9C%BA"><span class="toc-number">2.</span> <span class="toc-text">Java虚拟机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">2.2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">位置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E7%9A%84%E6%95%B4%E4%BD%93%E7%BB%93%E6%9E%84"><span class="toc-number">3.</span> <span class="toc-text">JVM的整体结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">4.</span> <span class="toc-text">JVM架构模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">5.</span> <span class="toc-text">JVM的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%90%AF%E5%8A%A8"><span class="toc-number">5.1.</span> <span class="toc-text">虚拟机的启动</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E6%89%A7%E8%A1%8C"><span class="toc-number">5.2.</span> <span class="toc-text">虚拟机的执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E9%80%80%E5%87%BA"><span class="toc-number">5.3.</span> <span class="toc-text">虚拟机的退出</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？"><img data-lazy-src="https://img.alicdn.com/tfs/TB1CdM5cvWG3KVjSZFPXXXaiXXa-1920-640.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里巴巴建议HashMap初始化时，指定容量大小？"/></a><div class="content"><a class="title" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？">阿里巴巴建议HashMap初始化时，指定容量大小？</a><time datetime="2021-05-31T10:28:38.525Z" title="更新于 2021-05-31 18:28:38">2021-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/42096.html" title="SSM整合"><img data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200423185957.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SSM整合"/></a><div class="content"><a class="title" href="/42096.html" title="SSM整合">SSM整合</a><time datetime="2021-04-09T12:37:34.000Z" title="更新于 2021-04-09 20:37:34">2021-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/52941.html" title="Spring事务详解"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4do8mo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring事务详解"/></a><div class="content"><a class="title" href="/52941.html" title="Spring事务详解">Spring事务详解</a><time datetime="2021-03-31T09:07:19.000Z" title="更新于 2021-03-31 17:07:19">2021-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/15002.html" title="MySQL之Explain性能分析"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200418114518.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL之Explain性能分析"/></a><div class="content"><a class="title" href="/15002.html" title="MySQL之Explain性能分析">MySQL之Explain性能分析</a><time datetime="2021-03-29T07:12:57.000Z" title="更新于 2021-03-29 15:12:57">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/53611.html" title="synchronized关键字的底层原理"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="synchronized关键字的底层原理"/></a><div class="content"><a class="title" href="/53611.html" title="synchronized关键字的底层原理">synchronized关键字的底层原理</a><time datetime="2021-03-28T04:16:22.000Z" title="更新于 2021-03-28 12:16:22">2021-03-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nzj88g.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Kylin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ClIyIUhj1ue2rcRTsApYCR50-gzGzoHsz',
+      appKey: 'ATug9IScYQBHILhKWEqBHYxM',
+      placeholder: '昵称填入QQ号能获取到QQ头像哦~请输入正确的邮箱地址，你将会快速收到我的回复并且通过邮件通知你！~',
+      avatar: 'robohash',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-cn',
+      recordIP: false,
+      serverURLs: 'https://cliyiuhj.lc-cn-n1-shared.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>

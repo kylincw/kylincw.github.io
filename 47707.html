@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SpringMVC学习-2 | Kylin</title><meta name="keywords" content="Spring,SpringMVC,SpringMVC环境配置"><meta name="author" content="Kylin"><meta name="copyright" content="Kylin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="在Spring整体框架的核心概念中，容器的核心思想是管理Bean的整个生命周期。但在一个项目中，Spring容器往往不止一个，最常见的场景就是在一个项目中引入Spring和SpringMVC这两个框架，其本质就是两个容器：Spring是根容器，SpringMVC是其子容器。关于这两个容器的创建、联系及区别也正是本文所关注的问题。  Spring容器、SpringMVC容器与ServletCont">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringMVC学习-2">
+<meta property="og:url" content="https://www.kylin.show/47707.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:description" content="在Spring整体框架的核心概念中，容器的核心思想是管理Bean的整个生命周期。但在一个项目中，Spring容器往往不止一个，最常见的场景就是在一个项目中引入Spring和SpringMVC这两个框架，其本质就是两个容器：Spring是根容器，SpringMVC是其子容器。关于这两个容器的创建、联系及区别也正是本文所关注的问题。  Spring容器、SpringMVC容器与ServletCont">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nekg9l.jpg">
+<meta property="article:published_time" content="2019-12-21T07:17:01.000Z">
+<meta property="article:modified_time" content="2020-04-04T14:10:42.000Z">
+<meta property="article:author" content="Kylin">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="SpringMVC">
+<meta property="article:tag" content="SpringMVC环境配置">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nekg9l.jpg"><link rel="shortcut icon" href="https://gitee.com/kylincw/images/raw/master/img/20200807181548.png"><link rel="canonical" href="https://www.kylin.show/47707"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><meta name="google-site-verification" content="gzeyWstt6NoTZKh7YFYNLNziL8HIZ8YH2Ug7xTDX5-Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f76c34daefe747deee7c7be3ead2ba80";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-159334016-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-159334016-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"自上次更新以来已经","messageNext":"天，文章的内容可能已过时或存在差异。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50000,"languages":{"author":"作者: Kylin","link":"链接: ","source":"来源: Kylin","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FF0000","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-04-04 22:10:42'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1993646_z05rabxf05h.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/icon.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Kylin" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nekg9l.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kylin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">SpringMVC学习-2</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-12-21T07:17:01.000Z" title="发表于 2019-12-21 15:17:01">2019-12-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-04T14:10:42.000Z" title="更新于 2020-04-04 22:10:42">2020-04-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/SSM/">SSM</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/SSM/SpringMVC/">SpringMVC</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p><strong>在Spring整体框架的核心概念中，容器的核心思想是管理Bean的整个生命周期。但在一个项目中，Spring容器往往不止一个，最常见的场景就是在一个项目中引入Spring和SpringMVC这两个框架，其本质就是两个容器：Spring是根容器，SpringMVC是其子容器。关于这两个容器的创建、联系及区别也正是本文所关注的问题。</strong></p>
+</blockquote>
+<h2 id="Spring容器、SpringMVC容器与ServletContext之间的关系"><a href="#Spring容器、SpringMVC容器与ServletContext之间的关系" class="headerlink" title="Spring容器、SpringMVC容器与ServletContext之间的关系"></a>Spring容器、SpringMVC容器与ServletContext之间的关系</h2><p><strong><font size = 4 color =red>Spring的启动过程其实就是其Spring IOC容器的启动过程。特别地，对于web程序而言，IOC容器启动过程即是建立上下文的过程。</font></strong></p>
+<h3 id="Spring的启动过程"><a href="#Spring的启动过程" class="headerlink" title="Spring的启动过程"></a>Spring的启动过程</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">web-app</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line">	<span class="comment">&lt;!-- 利用Spring提供的ContextLoaderListener监听器去监听ServletContext对象的创建，并初始化WebApplicationContext对象 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.context.ContextLoaderListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- Context Configuration locations for Spring XML files(默认查找/WEB-INF/applicationContext.xml) --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 配置Spring MVC的前端控制器：DispatchcerServlet --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>SpringMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springmvc.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>SpringMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">	    </span><br><span class="line">    ...</span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li><p><strong>对于一个web应用，其部署在web容器中，web容器提供其一个全局的上下文环境，这个上下文就是<font size = 4 color = red>ServletContext</font>，其为后面的spring IoC容器提供宿主环境；</strong></p>
+</li>
+<li><p><strong>在web.xml中会提供有<font color = gree size =4>contextLoaderListener</font>。在web容器启动时，会触发容器初始化事件，此时contextLoaderListener会监听到这个事件，其<font color =gree>contextInitialized</font>方法会被调用。在这个方法中，spring会初始化一个启动上下文，这个上下文被称为根上下文，即<font color =blue size =4>WebApplicationContext</font>。WebApplicationContext是一个接口类，确切的说，其实际的实现类是<font color=blue size = 3>XmlWebApplicationContext，它就是spring的IoC容器</font>，其对应的Bean定义的配置由web.xml中的<font size =4 color=skyblue>context-param</font>标签指定。在这个IoC容器初始化完毕后，Spring以WebApplicationContext.ROOTWEBAPPLICATIONCONTEXTATTRIBUTE为属性Key，将其存储到<font color = red size =5>ServletContext</font>中，便于获取；</strong></p>
+</li>
+<li><p><strong>ContextLoaderListener监听器初始化完毕后，开始初始化web.xml中配置的Servlet，这个servlet可以配置多个，以最常见的DispatcherServlet为例，这个servlet实际上是一个标准的前端控制器，用以转发、匹配、处理每个servlet请求。<font color = orange siez =5>DispatcherServlet上下文在初始化的时候会建立自己的IoC上下文，用以持有spring mvc相关的bean。特别地，在建立DispatcherServlet自己的IoC上下文前，会利用WebApplicationContext.ROOTWEBAPPLICATIONCONTEXTATTRIBUTE先从ServletContext中获取之前的根上下文(即WebApplicationContext)作为自己上下文的parent上下文。有了这个parent上下文之后，再初始化自己持有的上下文。</font>这个DispatcherServlet初始化自己上下文的工作在其initStrategies方法中可以看到，大概的工作就是初始化处理器映射、视图解析等。这个servlet自己持有的上下文默认实现类也是mlWebApplicationContext。初始化完毕后，spring以与servlet的名字相关(此处不是简单的以servlet名为Key，而是通过一些转换，具体可自行查看源码)的属性为属性Key，也将其存到ServletContext中，以便后续使用。这样每个servlet就持有自己的上下文，即拥有自己独立的bean空间，同时各个servlet共享相同的bean，即根上下文(第2步中初始化的上下文)定义的那些bean。</strong></p>
+</li>
+</ul>
+<h3 id="Spring容器与SpringMVC的容器联系与区别"><a href="#Spring容器与SpringMVC的容器联系与区别" class="headerlink" title="Spring容器与SpringMVC的容器联系与区别"></a><strong>Spring容器与SpringMVC的容器联系与区别</strong></h3><p><strong><font color = red size = 4>ContextLoaderListener中创建Spring容器主要用于整个Web应用程序需要共享的一些组件，比如DAO、数据库的ConnectionFactory等</font>；<font color = gree size =4>而由DispatcherServlet创建的SpringMVC的容器主要用于和该Servlet相关的一些组件，比如Controller、ViewResovler等</font>。它们之间的关系如下：</strong></p>
+<ol>
+<li><p><strong>作用范围</strong></p>
+<p><strong><font  color=skyblue size =4>子容器(SpringMVC容器)可以访问父容器(Spring容器)的Bean，父容器(Spring容器)不能访问子容器(SpringMVC容器)的Bean</font>。也就是说，当在SpringMVC容器中getBean时，如果在自己的容器中找不到对应的bean，则会去父容器中去找，这也解释了为什么由SpringMVC容器创建的Controller可以获取到Spring容器创建的Service组件的原因。</strong></p>
+</li>
+<li><p><strong>具体实现</strong></p>
+<p><strong>在Spring的具体实现上，子容器和父容器都是通过ServletContext的setAttribute方法放到ServletContext中的。但是，ContextLoaderListener会先于DispatcherServlet创建ApplicationContext，DispatcherServlet在创建ApplicationContext时会先找到由ContextLoaderListener所创建的ApplicationContext，再将后者的ApplicationContext作为参数传给DispatcherServlet的ApplicationContext的setParent()方法。也就是说，<font color = orange size =5>子容器的创建依赖于父容器的创建，父容器先于子容器创建</font>。在Spring源代码中，你可以在FrameServlet.java中找到如下代码：</strong></p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wac.setParent(parent);</span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kylin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.kylin.show/47707.html">https://www.kylin.show/47707.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.kylin.show" target="_blank">Kylin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring/">Spring</a><a class="post-meta__tags" href="/tags/SpringMVC/">SpringMVC</a><a class="post-meta__tags" href="/tags/SpringMVC%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">SpringMVC环境配置</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nekg9l.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/31386.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面8.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">SpringMVC学习-3</div></div></a></div><div class="next-post pull-right"><a href="/47899.html"><img class="next-cover" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418114743.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">SpringMVC学习-1</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/3172093075.html" title="JavaConfig配置Spirng"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200601091329.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-01-16</div><div class="title">JavaConfig配置Spirng</div></div></a></div><div><a href="/28234.html" title="Spring学习-9"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/壁画.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-15</div><div class="title">Spring学习-9</div></div></a></div><div><a href="/42096.html" title="SSM整合"><img class="cover" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200423185957.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-12-22</div><div class="title">SSM整合</div></div></a></div><div><a href="/47899.html" title="SpringMVC学习-1"><img class="cover" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418114743.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-19</div><div class="title">SpringMVC学习-1</div></div></a></div><div><a href="/31386.html" title="SpringMVC学习-3"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面8.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-21</div><div class="title">SpringMVC学习-3</div></div></a></div><div><a href="/47323.html" title="SpringMVC学习-4"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200607091758.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-12-22</div><div class="title">SpringMVC学习-4</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Kylin</div><div class="author-info__description">学习不易，努力努力~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div><a class="button--animated" id="card-info-btn"><i class="fas fa-bookmark"></i><span>加入书签</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kylincw" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=171346168&amp;Service=300&amp;sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="qq"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/53836035" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="mailto:zhang171346168@qq.com" target="_blank" title="Email"><i class="iconfont icon-email1"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">学习不易，努力努力！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring%E5%AE%B9%E5%99%A8%E3%80%81SpringMVC%E5%AE%B9%E5%99%A8%E4%B8%8EServletContext%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.</span> <span class="toc-text">Spring容器、SpringMVC容器与ServletContext之间的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%E7%9A%84%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">Spring的启动过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring%E5%AE%B9%E5%99%A8%E4%B8%8ESpringMVC%E7%9A%84%E5%AE%B9%E5%99%A8%E8%81%94%E7%B3%BB%E4%B8%8E%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">Spring容器与SpringMVC的容器联系与区别</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？"><img data-lazy-src="https://img.alicdn.com/tfs/TB1CdM5cvWG3KVjSZFPXXXaiXXa-1920-640.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里巴巴建议HashMap初始化时，指定容量大小？"/></a><div class="content"><a class="title" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？">阿里巴巴建议HashMap初始化时，指定容量大小？</a><time datetime="2021-05-31T10:28:38.525Z" title="更新于 2021-05-31 18:28:38">2021-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/42096.html" title="SSM整合"><img data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200423185957.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SSM整合"/></a><div class="content"><a class="title" href="/42096.html" title="SSM整合">SSM整合</a><time datetime="2021-04-09T12:37:34.000Z" title="更新于 2021-04-09 20:37:34">2021-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/52941.html" title="Spring事务详解"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4do8mo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring事务详解"/></a><div class="content"><a class="title" href="/52941.html" title="Spring事务详解">Spring事务详解</a><time datetime="2021-03-31T09:07:19.000Z" title="更新于 2021-03-31 17:07:19">2021-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/15002.html" title="MySQL之Explain性能分析"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200418114518.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL之Explain性能分析"/></a><div class="content"><a class="title" href="/15002.html" title="MySQL之Explain性能分析">MySQL之Explain性能分析</a><time datetime="2021-03-29T07:12:57.000Z" title="更新于 2021-03-29 15:12:57">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/53611.html" title="synchronized关键字的底层原理"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="synchronized关键字的底层原理"/></a><div class="content"><a class="title" href="/53611.html" title="synchronized关键字的底层原理">synchronized关键字的底层原理</a><time datetime="2021-03-28T04:16:22.000Z" title="更新于 2021-03-28 12:16:22">2021-03-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nekg9l.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Kylin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ClIyIUhj1ue2rcRTsApYCR50-gzGzoHsz',
+      appKey: 'ATug9IScYQBHILhKWEqBHYxM',
+      placeholder: '昵称填入QQ号能获取到QQ头像哦~请输入正确的邮箱地址，你将会快速收到我的回复并且通过邮件通知你！~',
+      avatar: 'robohash',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-cn',
+      recordIP: false,
+      serverURLs: 'https://cliyiuhj.lc-cn-n1-shared.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>

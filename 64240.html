@@ -1,0 +1,462 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MyBatis-Plus的CRUD及其扩展 | Kylin</title><meta name="keywords" content="MyBatisPlus,CRUD"><meta name="author" content="Kylin"><meta name="copyright" content="Kylin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="测试环境在上一篇MyBatis-Plus概述中搭建完成！  Mapper CRUD 接口 Insert Delete Update Select  配置日志我们现在所有的sql现在是不可见的，我们希望知道它是怎么执行的，所以我们必须要看日志。配置配置文件开启日志输出。  12# 配置日志 控制台输出mybatis-plus.configuration.log-impl&#x3D;org.apache.ib">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis-Plus的CRUD及其扩展">
+<meta property="og:url" content="https://www.kylin.show/64240.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:description" content="测试环境在上一篇MyBatis-Plus概述中搭建完成！  Mapper CRUD 接口 Insert Delete Update Select  配置日志我们现在所有的sql现在是不可见的，我们希望知道它是怎么执行的，所以我们必须要看日志。配置配置文件开启日志输出。  12# 配置日志 控制台输出mybatis-plus.configuration.log-impl&#x3D;org.apache.ib">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面19.png">
+<meta property="article:published_time" content="2020-04-18T01:10:32.000Z">
+<meta property="article:modified_time" content="2020-04-21T10:00:55.000Z">
+<meta property="article:author" content="Kylin">
+<meta property="article:tag" content="MyBatisPlus">
+<meta property="article:tag" content="CRUD">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面19.png"><link rel="shortcut icon" href="https://gitee.com/kylincw/images/raw/master/img/20200807181548.png"><link rel="canonical" href="https://www.kylin.show/64240"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><meta name="google-site-verification" content="gzeyWstt6NoTZKh7YFYNLNziL8HIZ8YH2Ug7xTDX5-Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f76c34daefe747deee7c7be3ead2ba80";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-159334016-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-159334016-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"自上次更新以来已经","messageNext":"天，文章的内容可能已过时或存在差异。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50000,"languages":{"author":"作者: Kylin","link":"链接: ","source":"来源: Kylin","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FF0000","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-04-21 18:00:55'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1993646_z05rabxf05h.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/icon.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Kylin" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面19.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kylin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">MyBatis-Plus的CRUD及其扩展</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2020-04-18T01:10:32.000Z" title="发表于 2020-04-18 09:10:32">2020-04-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-21T10:00:55.000Z" title="更新于 2020-04-21 18:00:55">2020-04-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/MyBatisPlus/">MyBatisPlus</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.4k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>测试环境在上一篇MyBatis-Plus概述中搭建完成！</p>
+</blockquote>
+<h2 id="Mapper-CRUD-接口"><a href="#Mapper-CRUD-接口" class="headerlink" title="Mapper CRUD 接口"></a>Mapper CRUD 接口</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421175854.png" alt="image-20200421175852672"></p>
+<h3 id="Insert"><a href="#Insert" class="headerlink" title="Insert"></a>Insert</h3><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421175909.png" alt="image-20200421175907600"></p>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421175936.png" alt="image-20200421175935055"></p>
+<h3 id="Update"><a href="#Update" class="headerlink" title="Update"></a>Update</h3><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421180004.png" alt="image-20200421180002971"></p>
+<h3 id="Select"><a href="#Select" class="headerlink" title="Select"></a>Select</h3><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421180033.png" alt="image-20200421180032760"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421180053.png" alt="image-20200421180052314"></p>
+<h2 id="配置日志"><a href="#配置日志" class="headerlink" title="配置日志"></a>配置日志</h2><p>我们现在所有的sql现在是不可见的，我们希望知道它是怎么执行的，所以我们必须要看日志。配置配置文件开启日志输出。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418101954.png" alt="image-20200418101944653"></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置日志 控制台输出</span></span><br><span class="line"><span class="meta">mybatis-plus.configuration.log-impl</span>=<span class="string">org.apache.ibatis.logging.stdout.StdOutImpl</span></span><br></pre></td></tr></table></figure>
+
+<p>查看测试查询全部效果</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418102633.png" alt="image-20200418102631130"></p>
+<h2 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h2><p><code>userMapper.insert();</code>参数是实体类对象</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418103342.png" alt="image-20200418103341789"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 测试插入</span></span><br><span class="line">   <span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">void</span> <span class="title">testInsert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       User user = <span class="keyword">new</span> User();</span><br><span class="line">       user.setName(<span class="string">&quot;kylin&quot;</span>);</span><br><span class="line">       user.setAge(<span class="number">3</span>);</span><br><span class="line">       user.setEmail(<span class="string">&quot;zhang171346168@qq.com&quot;</span>);</span><br><span class="line">       <span class="keyword">int</span> result = userMapper.insert(user);<span class="comment">//id会自动生成全局唯一id</span></span><br><span class="line">       System.out.println(result);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行测试</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418103700.png" alt="image-20200418103658984"></p>
+<p><strong>发现自动帮我们生成一个全局唯一主键ID值！</strong></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418103753.png" alt="image-20200418103753187"></p>
+<h2 id="主键生成策略"><a href="#主键生成策略" class="headerlink" title="主键生成策略"></a>主键生成策略</h2><p>由上可知，当我们不配主键ID时，MyBatisPlus会帮我们自动生成一个全局唯一的主键值。哪它是按什么思路生成的呢？我们能配置主键生成策略吗？答案是可以的。</p>
+<p>我们可以通过在实体类上的<strong>@TableId</strong>进行配置生成策略</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AUTO</td>
+<td>数据库ID自增</td>
+</tr>
+<tr>
+<td>NONE</td>
+<td>无状态,该类型为未设置主键类型(注解里等于跟随全局,全局里约等于 INPUT)</td>
+</tr>
+<tr>
+<td>INPUT</td>
+<td>insert前自行set主键值</td>
+</tr>
+<tr>
+<td>ASSIGN_ID</td>
+<td>分配ID(主键类型为Number(Long和Integer)或String)(since 3.3.0),使用接口<code>IdentifierGenerator</code>的方法<code>nextId</code>(默认实现类为<code>DefaultIdentifierGenerator</code>雪花算法)</td>
+</tr>
+<tr>
+<td>ASSIGN_UUID</td>
+<td>分配UUID,主键类型为String(since 3.3.0),使用接口<code>IdentifierGenerator</code>的方法<code>nextUUID</code>(默认default方法)</td>
+</tr>
+<tr>
+<td>ID_WORKER</td>
+<td>分布式全局唯一ID 长整型类型(please use <code>ASSIGN_ID</code>)</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>32位UUID字符串(please use <code>ASSIGN_UUID</code>)</td>
+</tr>
+<tr>
+<td>ID_WORKER_STR</td>
+<td>分布式全局唯一ID 字符串类型(please use <code>ASSIGN_ID</code>)</td>
+</tr>
+</tbody></table>
+<p>默认值为<strong>ID_WORKER</strong> 全局唯一id。也就是上文生成的。(MyBatisPlus新版发生改变例如3.3.1)</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418104655.png" alt="image-20200418104654596"></p>
+<p>其采用的算法是<strong>雪花算法</strong></p>
+<p><strong>snowflake是Twitter开源的分布式ID生成算法，结果是一个long型的ID。其核心思想是：使用41bit作为 毫秒数，10bit作为机器的ID（5个bit是数据中心，5个bit的机器ID），12bit作为毫秒内的流水号（意味 着每个节点在每毫秒可以产生 4096 个 ID），最后还有一个符号位，永远是0。可以保证几乎全球唯 一！</strong></p>
+<p>主键自增</p>
+<p>以配置主键自增为例。</p>
+<p>1.首先我们要在实体类主键字段上加上<code>@TableId(type = IdType.AUTO)</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418105342.png" alt="image-20200418105341893"></p>
+<p>2.主键自增需要修改数据库字段为自增</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418105505.png" alt="image-20200418105504561"></p>
+<p>3.再次测试插入</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418105650.png" alt="image-20200418105649526"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418105735.png" alt="image-20200418105734317"></p>
+<p>此时的ID值则在原来去基础上自增1.其他主键策略修改type值就可以了。</p>
+<h2 id="更新操作"><a href="#更新操作" class="headerlink" title="更新操作"></a>更新操作</h2><p><code>userMapper.updateById();</code><strong>注意参数是实体类对象，通过id作为条件进行更新</strong></p>
+<p>测试之前将主键生成策略改为<strong>input</strong>手动输入</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418110348.png" alt="image-20200418110347577"></p>
+<p>编写测试</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418113015.png" alt="image-20200418113014530"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">testUpdate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">      User user = <span class="keyword">new</span> User();</span><br><span class="line">      user.setId(<span class="number">5L</span>);</span><br><span class="line">      user.setName(<span class="string">&quot;kylin&quot;</span>);</span><br><span class="line">      user.setAge(<span class="number">12</span>);</span><br><span class="line">      user.setEmail(<span class="string">&quot;zhang171346168@qq.com&quot;</span>);</span><br><span class="line">      <span class="keyword">int</span> i = userMapper.updateById(user);</span><br><span class="line">      System.out.println(i);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418113139.png" alt="image-20200418113136712"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418113228.png" alt="image-20200418113226874"></p>
+<h2 id="自动填充"><a href="#自动填充" class="headerlink" title="自动填充"></a>自动填充</h2><p>创建时间、修改时间！这些个操作一遍都是自动化完成的，我们不希望手动更新！</p>
+<p>阿里巴巴开发手册：所有的数据库表：gmt_create、gmt_modified几乎所有的表都要配置上！而且需 要自动化！</p>
+<div class="note success flat"><h3 id="方式一：数据库级别（工作中不允许你修改数据库）"><a href="#方式一：数据库级别（工作中不允许你修改数据库）" class="headerlink" title="方式一：数据库级别（工作中不允许你修改数据库）"></a>方式一：数据库级别（工作中不允许你修改数据库）</h3></div>
+
+<p>1、在表中新增字段 create_time, update_time</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418173229.png" alt="image-20200418173228151"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418173245.png" alt="image-20200418173244776"></p>
+<p>2.再次测试插入方法前，我们需要先把实体类的属性与字段同步！</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418173400.png" alt="image-20200418173359316"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418174127.png" alt="image-20200418174125747"></p>
+<p><strong>MyBatisPlus是默认开启驼峰命名的。也就是实体类中属性createTime对应字段create_time。如果数据库中为create_time为createTime则会出现映射错误。</strong></p>
+<p>如果出现上面这种情况则需要配置MyBatisPlus的配置文件。关闭驼峰命名</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">mybatis-plus.configuration.map-underscore-to-camel-case</span>=<span class="string">false</span></span><br></pre></td></tr></table></figure>
+
+<p>测试插入方法</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418180245.png" alt="image-20200418180244122"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418180456.png" alt="image-20200418180454812"></p>
+<p>3.插入成功后查看数据库</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418180538.png" alt="image-20200418180537185"></p>
+<p>发现数据库中已经更新了创建时间和更新时间。</p>
+<p><strong>注意：SpringBoot配置数据库时时区为UTC会造成写入数据库时与中国北京时间相差8小时。这时候我们就要修改时区为<code>serverTimezone=GMT%2B8</code></strong></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418181211.png" alt="image-20200418181209383"></p>
+<div class="note success flat"><h3 id="方式二：代码级别"><a href="#方式二：代码级别" class="headerlink" title="方式二：代码级别"></a>方式二：代码级别</h3></div>
+
+<p>1.删除数据库的默认值、更新操作!(navicat中把这两栏删掉，再重新创建)</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418190114.png" alt="image-20200418190111259"></p>
+<p>2.实体类字段属性上需要增加注解<code>@TableField</code>根据实际情况。updateTime应在对其进行任何操作时都要更新时间。所以要在插入和更新时都更新改字段。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418190231.png" alt="image-20200418190225416"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418190343.png" alt="image-20200418190342657"></p>
+<p>3.编写处理器来处理这个注解,在handle包下创建一个<strong>MyMetaObjectHandler</strong> 类实现 <strong>MetaObjectHandler</strong>接口，重写方法。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418190819.png" alt="image-20200418190818980"></p>
+<p>4、测试插入</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418190906.png" alt="image-20200418190905317"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418190943.png" alt="image-20200418190942183"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418191008.png" alt="image-20200418191006846"></p>
+<p>5.测试更新</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418191029.png" alt="image-20200418191027550"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418191104.png" alt="image-20200418191103111"></p>
+<p>查看数据库发现改用户的更新时间发生改变。成功！</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418191220.png" alt="image-20200418191218433"></p>
+<h2 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h2><div class="note info flat"><p>乐观锁 : 故名思意十分乐观，它总是认为不会出现问题，无论干什么不去上锁！如果出现了问题， 再次更新值测试。</p>
+</div>
+
+<div class="note warning flat"><p>悲观锁：故名思意十分悲观，它总是认为总是出现问题，无论干什么都会上锁！再去操作！</p>
+</div>
+
+<p><strong>乐观锁实现方式</strong></p>
+<ul>
+<li>取出记录时，获取当前 version </li>
+<li>更新时，带上这个version </li>
+<li>执行更新时， set version = newVersion where version = oldVersion </li>
+<li>如果version不对，就更新失败</li>
+</ul>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421134937.png" alt="image-20200421134936267"></p>
+<div class="note success flat"><p>乐观锁插件测试</p>
+</div>
+
+<p>1.给数据库中增加version字段！</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421135558.png" alt="image-20200421135526025"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421135557.png" alt="image-20200421135556152"></p>
+<p>2.我们实体类加对应的字段。使用<code>@Version</code>注解</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421135724.png" alt="image-20200421135724020"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421135908.png" alt="image-20200421135906374"></p>
+<p>3.编写MybatisPlus配置类，注册组件。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421142203.png" alt="image-20200421142200316"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//@MapperScan(&quot;com.kylin.mapper&quot;)//扫描mapper文件夹</span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span><span class="comment">//自动管理事务</span></span><br><span class="line"><span class="meta">@Configuration</span><span class="comment">//配置类</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MybatisPlusConfig</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//注册乐观锁插件</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> OptimisticLockerInterceptor <span class="title">optimisticLockerInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> OptimisticLockerInterceptor();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.测试一下</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421142908.png" alt="image-20200421142906267"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试乐观锁</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testOptimisticLocker</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">//1.查询用户信息</span></span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    <span class="comment">//2.修改用户信息</span></span><br><span class="line">    user.setName(<span class="string">&quot;kylin&quot;</span>);</span><br><span class="line">    user.setEmail(<span class="string">&quot;zhang171346168@qq.com&quot;</span>);</span><br><span class="line">    <span class="comment">//3.执行更新操作</span></span><br><span class="line">    <span class="keyword">int</span> i = userMapper.updateById(user);</span><br><span class="line">    System.out.println(i);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421143156.png" alt="image-20200421143155430"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421143224.png" alt="image-20200421143223927"></p>
+<p>正常更新~</p>
+<p>5.模拟另一个线程执行了插队操作测试</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421143417.png" alt="image-20200421143411553"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试乐观锁失败~多线程下</span></span><br><span class="line"> <span class="meta">@Test</span></span><br><span class="line"> <span class="function"><span class="keyword">void</span> <span class="title">testOptimisticLocker2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">     <span class="comment">//线程1</span></span><br><span class="line">     User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">     user.setName(<span class="string">&quot;kylin111&quot;</span>);</span><br><span class="line">     user.setEmail(<span class="string">&quot;zhang171346168@qq.com&quot;</span>);</span><br><span class="line"></span><br><span class="line">     <span class="comment">//模拟另一个线程执行了插队操作</span></span><br><span class="line">     User user2 = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">     user2.setName(<span class="string">&quot;kylin222&quot;</span>);</span><br><span class="line">     user2.setEmail(<span class="string">&quot;zhang171346168@qq.com&quot;</span>);</span><br><span class="line">     <span class="comment">//执行更新操作</span></span><br><span class="line">     userMapper.updateById(user2);</span><br><span class="line">     userMapper.updateById(user);<span class="comment">//如果没有乐观锁就会覆盖插队线程的值</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421143906.png" alt="image-20200421143905436"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421143936.png" alt="image-20200421143934868"></p>
+<h2 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h2><p><code>userMapper.selectById()</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421152511.png" alt="image-20200421152508678"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSelectById</span><span class="params">()</span></span>&#123;</span><br><span class="line">    User user = userMapper.selectById(<span class="number">1L</span>);</span><br><span class="line">    System.out.println(user);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421152557.png" alt="image-20200421152555715"></p>
+<p>批量查询<code>userMapper.selectBatchIds()</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421152715.png" alt="image-20200421152713919"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试批量查询</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">testSelectByBatchId</span><span class="params">()</span></span>&#123;</span><br><span class="line">      List&lt;User&gt; users = userMapper.selectBatchIds(Arrays.asList(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>));</span><br><span class="line">      users.forEach(System.out::println);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421152825.png" alt="image-20200421152824818"></p>
+<p>按条件查询之一 通过map<code>userMapper.selectByMap()</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421152920.png" alt="image-20200421152919723"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试条件查询之一 通过map</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testSelectByBatchIds</span><span class="params">()</span></span>&#123;</span><br><span class="line">    HashMap&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">//自定义查询</span></span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;kylin&quot;</span>);</span><br><span class="line">    map.put(<span class="string">&quot;age&quot;</span>,<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">    List&lt;User&gt; users = userMapper.selectByMap(map);</span><br><span class="line">    users.forEach(System.out::println);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421153042.png" alt="image-20200421153041490"></p>
+<h2 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h2><p>进行分页查询可以使用原始的limit进行分页，或者使用pageHelper第三方插件。而MaBatisPlus也内置了分页插件。</p>
+<p>1.在MybatisPlus的配置类中注册拦截器组件</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421153602.png" alt="image-20200421153601541"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421153640.png" alt="image-20200421153639174"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注册分页插件</span></span><br><span class="line">   <span class="meta">@Bean</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> PaginationInterceptor <span class="title">paginationInterceptor</span><span class="params">()</span> </span>&#123;</span><br><span class="line">       <span class="keyword">return</span> <span class="keyword">new</span> PaginationInterceptor();</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.测试。直接使用Page对象即可！  <code>userMapper.selectPage(page,null);//条件表达式为空</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421153934.png" alt="image-20200421153931573"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试分页查询</span></span><br><span class="line">  <span class="meta">@Test</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">testPage</span><span class="params">()</span></span>&#123;</span><br><span class="line">      <span class="comment">//参数一：当前页 参数二：页面大小</span></span><br><span class="line">      Page&lt;User&gt; page = <span class="keyword">new</span> Page&lt;&gt;(<span class="number">2</span>,<span class="number">5</span>);</span><br><span class="line">      userMapper.selectPage(page,<span class="keyword">null</span>);<span class="comment">//条件表达式为空</span></span><br><span class="line">      page.getRecords().forEach(System.out::println);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421154356.png" alt="image-20200421154354446"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421154457.png" alt="image-20200421154456700"></p>
+<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421154842.png" alt="image-20200421154841654"></p>
+<p>根据 id 删除记录<code>userMapper.deleteById()</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421154910.png" alt="image-20200421154909813"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//测试删除。根据id删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteById</span><span class="params">()</span></span>&#123;</span><br><span class="line">    userMapper.deleteById(<span class="number">1251338727926538241L</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155037.png" alt="image-20200421155035383"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155059.png" alt="image-20200421155058830"></p>
+<p>通过id批量删除<code>userMapper.deleteBatchIds()</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155215.png" alt="image-20200421155214462"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过id批量删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteBatchId</span><span class="params">()</span></span>&#123;</span><br><span class="line">  userMapper.deleteBatchIds(Arrays.asList(<span class="number">1251338727926538242L</span>,<span class="number">1251338727926538243L</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155305.png" alt="image-20200421155304272"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155319.png" alt="image-20200421155318666"></p>
+<p>通过map删除<code>userMapper.deleteByMap()</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155433.png" alt="image-20200421155414068"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过map删除</span></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">testDeleteMap</span><span class="params">()</span></span>&#123;</span><br><span class="line">    HashMap&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    map.put(<span class="string">&quot;name&quot;</span>,<span class="string">&quot;kylin222&quot;</span>);</span><br><span class="line">    userMapper.deleteByMap(map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155521.png" alt="image-20200421155520168"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421155547.png" alt="image-20200421155546415"></p>
+<h2 id="逻辑删除"><a href="#逻辑删除" class="headerlink" title="逻辑删除"></a>逻辑删除</h2><div class="note info flat"><p>物理删除 ：从数据库中直接移除</p>
+<p> 逻辑删除 ：再数据库中没有被移除，而是通过一个变量来让他失效！ deleted = 0 =&gt; deleted = 1</p>
+</div>
+
+<p><strong>应用场景：管理员可以查看被删除的记录！防止数据的丢失，类似于回收站！</strong></p>
+<p>1.在数据表中增加一个 deleted 字段</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160111.png" alt="image-20200421160110851"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160121.png" alt="image-20200421160120833"></p>
+<p>2.实体类中增加属性。通过<code>@TableLogic</code></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160253.png" alt="image-20200421160252157"></p>
+<p>3.在MybatisPlus配置类中注册逻辑删除。3.1.1不用注册Bean</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160703.png" alt="image-20200421160702126"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160452.png" alt="image-20200421160451303"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//逻辑删除组件</span></span><br><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> ISqlInjector <span class="title">sqlInjector</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> LogicSqlInjector();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4.在SpringBoot配置文件中配置逻辑删除的默认值</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160806.png" alt="image-20200421160804499"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421160845.png" alt="image-20200421160843110"></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置逻辑删除 默认为0 逻辑删除后为1</span></span><br><span class="line"><span class="meta">mybatis-plus.global-config.db-config.logic-delete-value</span>=<span class="string">1</span></span><br><span class="line"><span class="meta">mybatis-plus.global-config.db-config.logic-not-delete-value</span>=<span class="string">0</span></span><br></pre></td></tr></table></figure>
+
+<p>5.通过删除操作进行测试</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421161109.png" alt="image-20200421161108001"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421161232.png" alt="image-20200421161230236"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421161313.png" alt="image-20200421161312197"></p>
+<p>在使用查询全部操作，看看是否能查询到此条记录。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421161437.png" alt="image-20200421161436458"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421161604.png" alt="image-20200421161602287"></p>
+<h2 id="性能分析插件"><a href="#性能分析插件" class="headerlink" title="性能分析插件"></a>性能分析插件</h2><p>我们在平时的开发中，会遇到一些慢sql。druid数据源也是有性能分析的。</p>
+<p>作用：性能分析拦截器，用于输出每条 SQL 语句及其执行时间 MP也提供性能分析插件，如果超过这个时间就停止运行！</p>
+<p>性能分析是需要消耗系统性能的，所以设置当处于开发环境dev，和测试环境test中开启。</p>
+<p>1.配置MyBatis配置类注册插件</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421164923.png" alt="image-20200421164921642"></p>
+<p>2.测试。为了展示效果设置了sql语句运行超过1毫米就不执行。随便点击一个测试</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421165914.png" alt="image-20200421165203781"></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200421165442.png" alt="image-20200421165440586"></p>
+<p>使用性能分析插件能帮我们直观的展示Sql语句运行的效率~</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kylin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.kylin.show/64240.html">https://www.kylin.show/64240.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.kylin.show" target="_blank">Kylin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/MyBatisPlus/">MyBatisPlus</a><a class="post-meta__tags" href="/tags/CRUD/">CRUD</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面19.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/14587.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img20201121170457.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">MyBatis-Plus条件构造器 </div></div></a></div><div class="next-post pull-right"><a href="/2532.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-6qlvzq.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MyBatis-Plus概述</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2532.html" title="MyBatis-Plus概述"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-6qlvzq.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-17</div><div class="title">MyBatis-Plus概述</div></div></a></div><div><a href="/15688.html" title="MyBatis-Plus代码生成器"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/荒鲸.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-21</div><div class="title">MyBatis-Plus代码生成器</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Kylin</div><div class="author-info__description">学习不易，努力努力~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div><a class="button--animated" id="card-info-btn"><i class="fas fa-bookmark"></i><span>加入书签</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kylincw" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=171346168&amp;Service=300&amp;sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="qq"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/53836035" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="mailto:zhang171346168@qq.com" target="_blank" title="Email"><i class="iconfont icon-email1"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">学习不易，努力努力！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mapper-CRUD-%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.</span> <span class="toc-text">Mapper CRUD 接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Insert"><span class="toc-number">1.1.</span> <span class="toc-text">Insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Delete"><span class="toc-number">1.2.</span> <span class="toc-text">Delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Update"><span class="toc-number">1.3.</span> <span class="toc-text">Update</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Select"><span class="toc-number">1.4.</span> <span class="toc-text">Select</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97"><span class="toc-number">2.</span> <span class="toc-text">配置日志</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%93%8D%E4%BD%9C"><span class="toc-number">3.</span> <span class="toc-text">插入操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E9%94%AE%E7%94%9F%E6%88%90%E7%AD%96%E7%95%A5"><span class="toc-number">4.</span> <span class="toc-text">主键生成策略</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E6%96%B0%E6%93%8D%E4%BD%9C"><span class="toc-number">5.</span> <span class="toc-text">更新操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85"><span class="toc-number">6.</span> <span class="toc-text">自动填充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%B8%80%EF%BC%9A%E6%95%B0%E6%8D%AE%E5%BA%93%E7%BA%A7%E5%88%AB%EF%BC%88%E5%B7%A5%E4%BD%9C%E4%B8%AD%E4%B8%8D%E5%85%81%E8%AE%B8%E4%BD%A0%E4%BF%AE%E6%94%B9%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%89"><span class="toc-number">6.1.</span> <span class="toc-text">方式一：数据库级别（工作中不允许你修改数据库）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C%EF%BC%9A%E4%BB%A3%E7%A0%81%E7%BA%A7%E5%88%AB"><span class="toc-number">6.2.</span> <span class="toc-text">方式二：代码级别</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%90%E8%A7%82%E9%94%81"><span class="toc-number">7.</span> <span class="toc-text">乐观锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2%E6%93%8D%E4%BD%9C"><span class="toc-number">8.</span> <span class="toc-text">查询操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2"><span class="toc-number">9.</span> <span class="toc-text">分页查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%93%8D%E4%BD%9C"><span class="toc-number">10.</span> <span class="toc-text">删除操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E5%88%A0%E9%99%A4"><span class="toc-number">11.</span> <span class="toc-text">逻辑删除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E6%8F%92%E4%BB%B6"><span class="toc-number">12.</span> <span class="toc-text">性能分析插件</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？"><img data-lazy-src="https://img.alicdn.com/tfs/TB1CdM5cvWG3KVjSZFPXXXaiXXa-1920-640.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里巴巴建议HashMap初始化时，指定容量大小？"/></a><div class="content"><a class="title" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？">阿里巴巴建议HashMap初始化时，指定容量大小？</a><time datetime="2021-05-31T10:28:38.525Z" title="更新于 2021-05-31 18:28:38">2021-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/42096.html" title="SSM整合"><img data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200423185957.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SSM整合"/></a><div class="content"><a class="title" href="/42096.html" title="SSM整合">SSM整合</a><time datetime="2021-04-09T12:37:34.000Z" title="更新于 2021-04-09 20:37:34">2021-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/52941.html" title="Spring事务详解"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4do8mo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring事务详解"/></a><div class="content"><a class="title" href="/52941.html" title="Spring事务详解">Spring事务详解</a><time datetime="2021-03-31T09:07:19.000Z" title="更新于 2021-03-31 17:07:19">2021-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/15002.html" title="MySQL之Explain性能分析"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200418114518.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL之Explain性能分析"/></a><div class="content"><a class="title" href="/15002.html" title="MySQL之Explain性能分析">MySQL之Explain性能分析</a><time datetime="2021-03-29T07:12:57.000Z" title="更新于 2021-03-29 15:12:57">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/53611.html" title="synchronized关键字的底层原理"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="synchronized关键字的底层原理"/></a><div class="content"><a class="title" href="/53611.html" title="synchronized关键字的底层原理">synchronized关键字的底层原理</a><time datetime="2021-03-28T04:16:22.000Z" title="更新于 2021-03-28 12:16:22">2021-03-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面19.png')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Kylin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ClIyIUhj1ue2rcRTsApYCR50-gzGzoHsz',
+      appKey: 'ATug9IScYQBHILhKWEqBHYxM',
+      placeholder: '昵称填入QQ号能获取到QQ头像哦~请输入正确的邮箱地址，你将会快速收到我的回复并且通过邮件通知你！~',
+      avatar: 'robohash',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-cn',
+      recordIP: false,
+      serverURLs: 'https://cliyiuhj.lc-cn-n1-shared.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>

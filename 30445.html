@@ -1,0 +1,435 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>HTTP协议详解 | Kylin</title><meta name="keywords" content="http协议,get请求,post请求,url,uri,repose,request"><meta name="author" content="Kylin"><meta name="copyright" content="Kylin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="HTTP协议详解">
+<meta property="og:url" content="https://www.kylin.show/30445.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4d5ezg.jpg">
+<meta property="article:published_time" content="2019-10-22T08:51:21.000Z">
+<meta property="article:modified_time" content="2020-04-05T04:19:51.000Z">
+<meta property="article:author" content="Kylin">
+<meta property="article:tag" content="http协议">
+<meta property="article:tag" content="get请求">
+<meta property="article:tag" content="post请求">
+<meta property="article:tag" content="url">
+<meta property="article:tag" content="uri">
+<meta property="article:tag" content="repose">
+<meta property="article:tag" content="request">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4d5ezg.jpg"><link rel="shortcut icon" href="https://gitee.com/kylincw/images/raw/master/img/20200807181548.png"><link rel="canonical" href="https://www.kylin.show/30445"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><meta name="google-site-verification" content="gzeyWstt6NoTZKh7YFYNLNziL8HIZ8YH2Ug7xTDX5-Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f76c34daefe747deee7c7be3ead2ba80";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-159334016-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-159334016-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"自上次更新以来已经","messageNext":"天，文章的内容可能已过时或存在差异。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50000,"languages":{"author":"作者: Kylin","link":"链接: ","source":"来源: Kylin","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FF0000","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-04-05 12:19:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1993646_z05rabxf05h.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/icon.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Kylin" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4d5ezg.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kylin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">HTTP协议详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-22T08:51:21.000Z" title="发表于 2019-10-22 16:51:21">2019-10-22</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-05T04:19:51.000Z" title="更新于 2020-04-05 12:19:51">2020-04-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">5.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>16分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1571744434330&di=154306d8f951fbfdac11a40b27b22c19&imgtype=jpg&src=http%3A%2F%2Fimg1.imgtn.bdimg.com%2Fit%2Fu%3D3965913636%2C2647143796%26fm%3D214%26gp%3D0.jpg" alt=""></p>
+<a id="more"></a>
+<p>互联网的发展非常迅速，但是万变不离其宗。学习web开发，需要我们对 互联的交互机制有一定的了解。为了更好的理解并掌握Servlet，在正式学习 Servlet之前需要对web开发中客户端和服务器的交互机制以及所涉及的规范 (HTTP)进行学习。</p>
+<h2 id="web交互的基本流程"><a href="#web交互的基本流程" class="headerlink" title="web交互的基本流程"></a>web交互的基本流程</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405121751.png" alt="image-20200405121750009"></p>
+<p>客户端根据用户输入的地址信息请求服务器，服务器在接收到用户 的请求后进行处理，然后将处理结果响应给客户端，客户端将响应结果 展示给用户。 </p>
+<ul>
+<li>专业术语: <ul>
+<li><strong>请求：客户端根据用户地址信息将数据发送给服务器的过程</strong></li>
+<li><strong>响应：服务器将请求的处理结果发送给浏览器的过程</strong></li>
+</ul>
+</li>
+<li>问题：<ul>
+<li>客户端也就是浏览器的版本是有很多的，服务器的版本也是有很多 的，如何实现不同版本的浏览器和不同版本的服务器之间的数据交互 呢？</li>
+</ul>
+</li>
+<li><strong>解决：规范浏览器和服务器的数据交互的格式。</strong></li>
+<li><strong>实现：HTTP协议</strong><h2 id="HTTP的概念和介绍"><a href="#HTTP的概念和介绍" class="headerlink" title="HTTP的概念和介绍"></a>HTTP的概念和介绍</h2></li>
+<li>概念：<strong>超文本传输协议（Hyper Text Transfer Protocol）</strong></li>
+<li>作用：<strong>规范了浏览器和服务器的数据交互</strong></li>
+<li>特点：<ul>
+<li><strong>简单快速：客户向服务器请求服务时，只需传送请求方法和路径。请求方法常用的有GET、HEAD、POST。每种方法规定了客户与服务器联系的类型不同。由于 HTTP 协议简单，使得 HTTP 服务器的程序规模小，因而通信速度很快</strong></li>
+<li><strong>灵活：HTTP 允许传输任意类型的数据对象。正在传输的类型由Content-Type加以标记。无连接：无连接的含义是限制每次连接只处理一个请求。服务器处理完客户的请求，并收到客户的应答后，即断开连接。采用这种方式可以节省传输时间。</strong></li>
+<li><strong>无状态：HTTP 协议是无状态协议。无状态是指协议对于事务处理没有记忆能力。缺少状态意味着如果后续处理需要前面的信息，则它必须重传，这样可能导致每次连接传送的数据量增大。另一方面，在服务器不需要先前信息时它的应答就较快。</strong></li>
+<li><strong>支持B/S及C/S模式。</strong></li>
+<li><strong>HTTP1.1版本后支持可持续连接，即在某一规定时间内保持连接，若超过规定时间则断开连接。若在规定时间内有数据的请求传输则重新计时，至规定时间内无任何数据传输的条件下断开连接。</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP的交互流程"><a href="#HTTP的交互流程" class="headerlink" title="HTTP的交互流程"></a>HTTP的交互流程</h2><ul>
+<li>HTTP的交互流程一般分为四个步骤(一次完整的请求)： <ul>
+<li>步骤一: 客户端和服务器端建立连接 </li>
+<li>步骤二： <strong>客户端发送请求数据到服务器端(HTTP协议)</strong></li>
+<li>步骤三： <strong>服务器端接收到请求后，进行处理，然后将 处理结果响应客户端(HTTP协议)</strong></li>
+<li>步骤四： <strong>关闭客户端和服务器端的连接(HTTP1.1后不会立即关闭)</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP之URL"><a href="#HTTP之URL" class="headerlink" title="HTTP之URL"></a>HTTP之URL</h2><ul>
+<li><p><strong>HTTP使用统一资源标识符（Uniform Resource Identifiers, URI）来传输数据和建立连接。URL是一种特殊类型的URI，包含了用于查找某个资源的足够的信息</strong></p>
+</li>
+<li><p><strong>URL,全称是UniformResourceLocator, 中文叫统一资源定位符,是互联网上用来标识某一处资源的地址。</strong>以下面这个URL为例，介绍下普通URL的各部分组成：</p>
+</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name">http://www.aspxfans.com:8080/news/index.asp?boardID=5&amp;ID=24618&amp;page=1#name</a></p>
+<ul>
+<li><p>从上面的URL可以看出，一个完整的URL包括以下几部分：</p>
+<ul>
+<li><p>1.协议部分：<strong>该URL的协议部分为“http：”，这代表网页使用的是HTTP协议。</strong>在Internet中可以使用多种协议，如HTTP，FTP等等本例中使用的是HTTP协议。<strong>在”HTTP”后面的“//”为分隔符</strong></p>
+</li>
+<li><p>2.域名部分：<strong>该URL的域名部分为“<a target="_blank" rel="noopener" href="http://www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用">www.aspxfans.com”。一个URL中，也可以使用IP地址作为域名使用</a></strong></p>
+</li>
+<li><p>3.端口部分：<strong>跟在域名后面的是端口，域名和端口之间使用“:”作为分隔符。端口不是一个URL必须的部分，如果省略端口部分，将采用默认端口</strong></p>
+</li>
+<li><p>4.虚拟目录部分：<strong>从域名后的第一个“/”开始到最后一个“/”为止，是虚拟目录部分。虚拟目录也不是一个URL必须的部分。本例中的虚拟目录是“/news/”</strong></p>
+</li>
+<li><p>5.文件名部分：<strong>从域名后的最后一个“/”开始到“？”为止，是文件名部分，如果没有“?”,则是从域名后的最后一个“/”开始到“#”为止，是文件部分，如果没有“？”和“#”，那么从域名后的最后一个“/”开始到结束，都是文件名部分。本例中的文件名是“index.asp”。文件名部分也不是一个URL必须的部分，如果省略该部分，则使用默认的文件名</strong></p>
+</li>
+<li><p>6.锚部分：<strong>从“#”开始到最后，都是锚部分。本例中的锚部分是“name”。锚部分也不是一个URL必须的部分</strong></p>
+</li>
+<li><p>7.参数部分：<strong>从“？”开始到“#”为止之间的部分为参数部分，又称搜索部分、查询部分。本例中的参数部分为“boardID=5&amp;ID=24618&amp;page=1”。参数可以允许有多个参数，参数与参数之间用“&amp;”作为分隔符</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="URI和URL的区别"><a href="#URI和URL的区别" class="headerlink" title="URI和URL的区别"></a>URI和URL的区别</h2><p><strong>URI，是uniform resource identifier，统一资源标识符，用来唯一的标识一个资源。</strong><br>Web上可用的每种资源如HTML文档、图像、视频片段、程序等都是一个来URI来定位的</p>
+<ul>
+<li><strong>URI</strong>一般由三部组成：<ul>
+<li>①访问资源的命名机制</li>
+<li>②存放资源的主机名</li>
+<li>③资源自身的名称，由路径表示，着重强调于资源。</li>
+</ul>
+</li>
+</ul>
+<p><strong>URL是uniform resource locator，统一资源定位符（统一资源定位器）</strong>，它是一种具体的URI，即URL可以用来标识一个资源，而且还指明了如何locate这个资源。</p>
+<p>URL是Internet上用来描述信息资源的字符串，主要用在各种WWW客户程序和服务器程序上，特别是著名的Mosaic。<br>采用URL可以用一种统一的格式来描述各种信息资源，包括文件、服务器的地址和目录等。</p>
+<ul>
+<li><strong>URL</strong>一般由三部组成：<ul>
+<li>①协议(或称为服务方式)</li>
+<li>②存有该资源的主机IP地址(有时也包括端口号)</li>
+<li>③主机资源的具体地址。如目录和文件名等</li>
+</ul>
+</li>
+</ul>
+<p>URN，uniform resource name，统一资源命名，是通过名字来标识资源，比如mailto:<a href="mailto:java-net@java.sun.com">java-net@java.sun.com</a>。</p>
+<p><strong>URI是以一种抽象的，高层次概念定义统一资源标识，而URL和URN则是具体的资源标识的方式。URL和URN都是一种URI。笼统地说，每个 URL 都是 URI，但不一定每个 URI 都是 URL。这是因为 URI 还包括一个子类，即统一资源名称 (URN)，它命名资源但不指定如何定位资源。上面的 mailto、news 和 isbn URI 都是 URN 的示例。</strong></p>
+<p>在Java的URI中，一个<strong>URI实例可以代表绝对的，也可以是相对的，只要它符合URI的语法规则。而URL类则不仅符合语义，还包含了定位该资源的信息，因此它不能是相对的。</strong><br><strong>在Java类库中，URI类不包含任何访问资源的方法，它唯一的作用就是解析。相反的是，URL类可以打开一个到达资源的流。</strong></p>
+<h2 id="HTTP之请求消息Request"><a href="#HTTP之请求消息Request" class="headerlink" title="HTTP之请求消息Request"></a>HTTP之请求消息Request</h2><p>客户端发送一个HTTP请求到服务器的请求消息包括以下格式：</p>
+<p><strong>请求行（request line）、请求头部（header）、空行和请求数据四个部分组成。</strong><br><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405121821.png" alt="image-20200405121819208"></p>
+<p>请求行以一个方法符号开头，以空格分开，后面跟着请求的URI和协议的版本。<br>Get请求例子，使用Charles抓取的request：</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405121854.png" alt="image-20200405121853545"></p>
+<ul>
+<li>第一部分：<strong>请求行，用来说明请求类型,要访问的资源以及所使用的HTTP版本.</strong></li>
+</ul>
+<p><strong>GET说明请求类型为GET,[/562f25980001b1b106000338.jpg]为要访问的资源，该行的最后一部分说明使用的是HTTP1.1版本。</strong></p>
+<ul>
+<li><p>第二部分：<strong>请求头部，紧接着请求行（即第一行）之后的部分，用来说明服务器要使用的附加信息从第二行起为请求头部，HOST将指出请求的目的地.User-Agent,服务器端和客户端脚本都能访问它,它是浏览器类型检测逻辑的重要基础.该信息由你的浏览器来定义,并且在每个请求中自动发送等等</strong></p>
+</li>
+<li><p>第三部分：<strong>空行，请求头部后面的空行是必须的即使第四部分的请求数据为空，也必须有空行。</strong></p>
+</li>
+</ul>
+<p>第四部分：<strong>请求数据也叫主体，可以添加任意的其他数据。这个例子的请求数据为空.</strong></p>
+<p>POST请求例子，使用Charles抓取的request：</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405121919.png" alt="image-20200405121918725"></p>
+<ul>
+<li>第一部分：请求行，第一行明了是post请求，以及http1.1版本。</li>
+<li>第二部分：请求头部，第二行至第六行。</li>
+<li>第三部分：空行，第七行的空行。</li>
+<li>第四部分：请求数据，第八行。</li>
+</ul>
+<h2 id="HTTP之响应消息Response"><a href="#HTTP之响应消息Response" class="headerlink" title="HTTP之响应消息Response"></a>HTTP之响应消息Response</h2><p>一般情况下，服务器接收并处理客户端发过来的请求后会返回一个HTTP的响应消息。</p>
+<p>HTTP响应也由四个部分组成，分别是：<strong>状态行、消息报头、空行和响应正文</strong>。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405121944.png" alt="image-20200405121943481"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTTP&#x2F;1.1 200 OK</span><br><span class="line">Date: Fri, 22 May 2009 06:07:21 GMT</span><br><span class="line">Content-Type: text&#x2F;html; charset&#x3D;UTF-8</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">      &lt;head&gt;&lt;&#x2F;head&gt;</span><br><span class="line">      &lt;body&gt;</span><br><span class="line">            &lt;!--body goes here--&gt;</span><br><span class="line">      &lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>第一部分：<strong>状态行，由HTTP协议版本号， 状态码， 状态消息 三部分组成。</strong></p>
+<ul>
+<li>第一行为状态行，（HTTP/1.1）表明HTTP版本为1.1版本，状态码为200，状态消息为（ok）</li>
+</ul>
+</li>
+<li><p>第二部分：<strong>消息报头，用来说明客户端要使用的一些附加信息</strong></p>
+<ul>
+<li>第二行和第三行为消息报头，Date:生成响应的日期和时间；Content-Type:指定了MIME类型的HTML(text/html),编码类型是UTF-8</li>
+</ul>
+</li>
+<li><p>第三部分：<strong>空行，消息报头后面的空行是必须的</strong></p>
+</li>
+<li><p>第四部分：<strong>响应正文，服务器返回给客户端的文本信息。空行后面的html部分为响应正文。</strong></p>
+</li>
+</ul>
+<h2 id="HTTP常见响应状态码"><a href="#HTTP常见响应状态码" class="headerlink" title="HTTP常见响应状态码"></a>HTTP常见响应状态码</h2><p>HTTP状态码由三个十进制数字组成，第一个十进制数字定义了状态码 的类型，后两个数字没有分类的作用。HTTP状态码共分为5种类型<br><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405121643.png" alt=""><br>常见状态码：</p>
+<ul>
+<li><strong>200 OK ：客户端请求成功</strong></li>
+<li>400 Bad Request：客户端请求有语法错误，不能被服务器所理解 </li>
+<li>401 Unauthorized：请求未经授权，这个状态代码必须和 WWW-Authenticate 报头域一起使用 </li>
+<li>403 Forbidden：服务器收到请求，但是拒绝提供服务 </li>
+<li><strong>404 Not Found：请求资源不存在输入了错误的URL</strong></li>
+<li><strong>500 Internal Server Error：服务器发生不可预期的错误（一般表现为服务器繁忙~）</strong></li>
+<li>503 Server Unavailable：服务器当前不能处理客户端的请求，一段时 间后可能恢复正常</li>
+</ul>
+<h2 id="HTTP请求方法"><a href="#HTTP请求方法" class="headerlink" title="HTTP请求方法"></a>HTTP请求方法</h2><p>根据HTTP标准，HTTP请求可以使用多种请求方法。</p>
+<p>HTTP1.0定义了三种请求方法： GET, POST 和 HEAD方法。</p>
+<p>HTTP1.1新增了五种请求方法：OPTIONS, PUT, DELETE, TRACE 和 CONNECT 方法。</p>
+<ul>
+<li><p><strong>GET     请求指定的页面信息，并返回实体主体。</strong></p>
+</li>
+<li><p>HEAD     类似于get请求，只不过返回的响应中没有具体的内容，用于获取报头</p>
+</li>
+<li><p><strong>POST     向指定资源提交数据进行处理请求（例如提交表单或者上传文件）。数据被包含在请求体中。POST请求可能会导致新的资源的建立和/或已有资源的修改。</strong></p>
+</li>
+<li><p>PUT     从客户端向服务器传送的数据取代指定的文档的内容。</p>
+</li>
+<li><p>DELETE      请求服务器删除指定的页面。</p>
+</li>
+<li><p>CONNECT     HTTP/1.1协议中预留给能够将连接改为管道方式的代理服务器。</p>
+</li>
+<li><p>OPTIONS     允许客户端查看服务器的性能。</p>
+</li>
+<li><p>TRACE     回显服务器收到的请求，主要用于测试或诊断。</p>
+</li>
+</ul>
+<h2 id="GET和POST请求的区别"><a href="#GET和POST请求的区别" class="headerlink" title="GET和POST请求的区别"></a>GET和POST请求的区别</h2><p>Http协议定义了很多与服务器交互的方法，最基本的有4种，分别是GET,POST,PUT,DELETE. 一个URL地址用于描述一个网络上的资源，而HTTP中的GET, POST, PUT, DELETE就对应着对这个资源的查，改，增，删4个操作。 我们最常见的就是GET和POST了。GET一般用于获取/查询资源信息，而POST一般用于更新资源信息.</p>
+<p>GET请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">GET &#x2F;books&#x2F;?sex&#x3D;man&amp;name&#x3D;Professional HTTP&#x2F;1.1</span><br><span class="line">Host: www.wrox.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)</span><br><span class="line">Gecko&#x2F;20050225 Firefox&#x2F;1.0.1</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">（空行）</span><br></pre></td></tr></table></figure>
+<p>POST请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">POST &#x2F; HTTP&#x2F;1.1</span><br><span class="line">Host: www.wrox.com</span><br><span class="line">User-Agent: Mozilla&#x2F;5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7.6)</span><br><span class="line">Gecko&#x2F;20050225 Firefox&#x2F;1.0.1</span><br><span class="line">Content-Type: application&#x2F;x-www-form-urlencoded</span><br><span class="line">Content-Length: 40</span><br><span class="line">Connection: Keep-Alive</span><br><span class="line">(空行)</span><br><span class="line">name&#x3D;Professional%20Ajax&amp;publisher&#x3D;Wiley</span><br></pre></td></tr></table></figure>
+
+<p>1、GET提交，请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），以?分割URL和传输数据，多个参数用&amp;连接；例 如：login.action?name=hyddd&amp;password=idontknow&amp;verify=%E4%BD%A0 %E5%A5%BD。如果数据是英文字母/数字，原样发送，如果是空格，转换为+，如果是中文/其他字符，则直接把字符串用BASE64加密，得出如： %E4%BD%A0%E5%A5%BD，其中％XX中的XX为该符号以16进制表示的ASCII。</p>
+<p>POST提交：把提交的数据放置在是HTTP包的包体中。上文示例中红色字体标明的就是实际的传输数据</p>
+<p>因此，GET提交的数据会在地址栏中显示出来，而POST提交，地址栏不会改变<br>2、传输数据的大小：首先声明：HTTP协议没有对传输的数据大小进行限制，HTTP协议规范也没有对URL长度进行限制。</p>
+<p>而在实际开发中存在的限制主要有：</p>
+<p><strong>GET:特定浏览器和服务器对URL长度有限制，例如 IE对URL长度的限制是2083字节(2K+35)。对于其他浏览器，如Netscape、FireFox等，理论上没有长度限制，其限制取决于操作系 统的支持。因此对于GET提交时，传输数据就会受到URL长度的 限制。</strong></p>
+<p><strong>POST:由于不是通过URL传值，理论上数据不受 限。但实际各个WEB服务器会规定对post提交数据大小进行限制，Apache、IIS6都有各自的配置。</strong></p>
+<p>3、安全性<br>POST的安全性要比GET的安全性高。比如：通过GET提交数据，用户名和密码将明文出现在URL上，因为(1)登录页面有可能被浏览器缓存；(2)其他人查看浏览器的历史纪录，那么别人就可以拿到你的账号和密码了，除此之外，使用GET提交数据还可能会造成Cross-site request forgery攻击</p>
+<p>4、Http get,post,soap协议都是在http上运行的</p>
+<p>（1）get：请求参数是作为一个key/value对的序列（查询字符串）附加到URL上的<br>查询字符串的长度受到web浏览器和web服务器的限制（如IE最多支持2048个字符），不适合传输大型数据集同时，它很不安全</p>
+<p>（2）post：请求参数是在http标题的一个不同部分（名为entity body）传输的，这一部分用来传输表单信息，因此必须将Content-type设置为:application/x-www-form- urlencoded。post设计用来支持web窗体上的用户字段，其参数也是作为key/value对传输。<br>但是：它不支持复杂数据类型，因为post没有定义传输数据结构的语义和规则。</p>
+<p>（3）soap：是http post的一个专用版本，遵循一种特殊的xml消息格式<br>Content-type设置为: text/xml 任何数据都可以xml化。</p>
+<ul>
+<li><p>我们看看GET和POST的区别</p>
+<ul>
+<li><p><strong>GET提交的数据会放在URL之后，以?分割URL和传输数据，参数之间以&amp;相连，如EditPosts.aspx?name=test1&amp;id=123456. POST方法是把提交的数据放在HTTP包的Body中.</strong></p>
+</li>
+<li><p><strong>GET提交的数据大小有限制（因为浏览器对URL的长度有限制），而POST方法提交的数据没有限制.</strong></p>
+</li>
+<li><p>GET方式需要使用Request.QueryString来取得变量的值，而POST方式通过Request.Form来获取变量的值。</p>
+</li>
+<li><p><strong>GET方式提交数据，会带来安全问题，比如一个登录页面，通过GET方式提交数据时，用户名和密码将出现在URL上，如果页面可以被缓存或者其他人可以访问这台机器，就可以从历史记录获得该用户的账号和密码.</strong></p>
+</li>
+</ul>
+</li>
+<li><p>总结：</p>
+<ul>
+<li>get请求方式： <strong>请求数据会以？的形式隔开拼接在请求头中，不安全，没有请求实 体部分。 HTTP协议虽然没有规定请求数据的大小，但是浏览器对URL的长 度是有限制的，所以get请求不能携带大量的数据。</strong></li>
+<li>post请求方式： <strong>请求数据在请求实体中进行发送，在URL中看不到具体的请求数据， 安全。适合数据量大的数据发送。</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="HTTP工作原理"><a href="#HTTP工作原理" class="headerlink" title="HTTP工作原理"></a>HTTP工作原理</h2><p>HTTP协议定义Web客户端如何从Web服务器请求Web页面，以及服务器如何把Web页面传送给客户端。HTTP协议采用了请求/响应模型。客户端向服务器发送一个请求报文，请求报文包含请求的方法、URL、协议版本、请求头部和请求数据。服务器以一个状态行作为响应，响应的内容包括协议的版本、成功或者错误代码、服务器信息、响应头部和响应数据。</p>
+<p>以下是 HTTP 请求/响应的步骤：</p>
+<p>1、<strong>客户端连接到Web服务器</strong><br>一个HTTP客户端，通常是浏览器，与Web服务器的HTTP端口（默认为80）建立一个TCP套接字连接。例如，<a target="_blank" rel="noopener" href="http://www.oakcms.cn。">http://www.oakcms.cn。</a></p>
+<p>2、<strong>发送HTTP请求</strong><br>通过TCP套接字，客户端向Web服务器发送一个文本的请求报文，一个请求报文由请求行、请求头部、空行和请求数据4部分组成。</p>
+<p>3、<strong>服务器接受请求并返回HTTP响应</strong><br>Web服务器解析请求，定位请求资源。服务器将资源复本写到TCP套接字，由客户端读取。一个响应由状态行、响应头部、空行和响应数据4部分组成。</p>
+<p>4、<strong>释放连接TCP连接</strong><br>若connection 模式为close，则服务器主动关闭TCP连接，客户端被动关闭连接，释放TCP连接;若connection 模式为keepalive，则该连接会保持一段时间，在该时间内可以继续接收请求;</p>
+<p>5、<strong>客户端浏览器解析HTML内容</strong><br>客户端浏览器首先解析状态行，查看表明请求是否成功的状态代码。然后解析每一个响应头，响应头告知以下为若干字节的HTML文档和文档的字符集。客户端浏览器读取响应数据HTML，根据HTML的语法对其进行格式化，并在浏览器窗口中显示。</p>
+<p>例如：在浏览器地址栏键入URL，按下回车之后会经历以下流程：</p>
+<ul>
+<li><p><strong>1、浏览器向 DNS 服务器请求解析该 URL 中的域名所对应的 IP 地址;</strong></p>
+</li>
+<li><p><strong>2、解析出 IP 地址后，根据该 IP 地址和默认端口 80，和服务器建立TCP连接;</strong></p>
+</li>
+<li><p><strong>3、浏览器发出读取文件(URL 中域名后面部分对应的文件)的HTTP 请求，该请求报文作为 TCP 三次握手的第三个报文的数据发送给服务器;</strong></p>
+</li>
+<li><p><strong>4、服务器对浏览器请求作出响应，并把对应的 html 文本发送给浏览器;</strong></p>
+</li>
+<li><p><strong>5、释放 TCP连接;</strong></p>
+</li>
+<li><p><strong>6、浏览器将该 html 文本并显示内容;</strong> 　　</p>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kylin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.kylin.show/30445.html">https://www.kylin.show/30445.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.kylin.show" target="_blank">Kylin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/http%E5%8D%8F%E8%AE%AE/">http协议</a><a class="post-meta__tags" href="/tags/get%E8%AF%B7%E6%B1%82/">get请求</a><a class="post-meta__tags" href="/tags/post%E8%AF%B7%E6%B1%82/">post请求</a><a class="post-meta__tags" href="/tags/url/">url</a><a class="post-meta__tags" href="/tags/uri/">uri</a><a class="post-meta__tags" href="/tags/repose/">repose</a><a class="post-meta__tags" href="/tags/request/">request</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4d5ezg.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/55054.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/博客封面1.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Tomcat服务器介绍和使用</div></div></a></div><div class="next-post pull-right"><a href="/47587.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4x28xo.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">EasyUI的使用</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Kylin</div><div class="author-info__description">学习不易，努力努力~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div><a class="button--animated" id="card-info-btn"><i class="fas fa-bookmark"></i><span>加入书签</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kylincw" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=171346168&amp;Service=300&amp;sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="qq"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/53836035" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="mailto:zhang171346168@qq.com" target="_blank" title="Email"><i class="iconfont icon-email1"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">学习不易，努力努力！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E4%BA%A4%E4%BA%92%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%B5%81%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">web交互的基本流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">HTTP的概念和介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E7%9A%84%E4%BA%A4%E4%BA%92%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">HTTP的交互流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E4%B9%8BURL"><span class="toc-number">4.</span> <span class="toc-text">HTTP之URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#URI%E5%92%8CURL%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">URI和URL的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E4%B9%8B%E8%AF%B7%E6%B1%82%E6%B6%88%E6%81%AFRequest"><span class="toc-number">6.</span> <span class="toc-text">HTTP之请求消息Request</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E4%B9%8B%E5%93%8D%E5%BA%94%E6%B6%88%E6%81%AFResponse"><span class="toc-number">7.</span> <span class="toc-text">HTTP之响应消息Response</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%B8%B8%E8%A7%81%E5%93%8D%E5%BA%94%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">8.</span> <span class="toc-text">HTTP常见响应状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E8%AF%B7%E6%B1%82%E6%96%B9%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">HTTP请求方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET%E5%92%8CPOST%E8%AF%B7%E6%B1%82%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">10.</span> <span class="toc-text">GET和POST请求的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HTTP%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="toc-number">11.</span> <span class="toc-text">HTTP工作原理</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？"><img data-lazy-src="https://img.alicdn.com/tfs/TB1CdM5cvWG3KVjSZFPXXXaiXXa-1920-640.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里巴巴建议HashMap初始化时，指定容量大小？"/></a><div class="content"><a class="title" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？">阿里巴巴建议HashMap初始化时，指定容量大小？</a><time datetime="2021-05-31T10:28:38.525Z" title="更新于 2021-05-31 18:28:38">2021-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/42096.html" title="SSM整合"><img data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200423185957.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SSM整合"/></a><div class="content"><a class="title" href="/42096.html" title="SSM整合">SSM整合</a><time datetime="2021-04-09T12:37:34.000Z" title="更新于 2021-04-09 20:37:34">2021-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/52941.html" title="Spring事务详解"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4do8mo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring事务详解"/></a><div class="content"><a class="title" href="/52941.html" title="Spring事务详解">Spring事务详解</a><time datetime="2021-03-31T09:07:19.000Z" title="更新于 2021-03-31 17:07:19">2021-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/15002.html" title="MySQL之Explain性能分析"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200418114518.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL之Explain性能分析"/></a><div class="content"><a class="title" href="/15002.html" title="MySQL之Explain性能分析">MySQL之Explain性能分析</a><time datetime="2021-03-29T07:12:57.000Z" title="更新于 2021-03-29 15:12:57">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/53611.html" title="synchronized关键字的底层原理"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="synchronized关键字的底层原理"/></a><div class="content"><a class="title" href="/53611.html" title="synchronized关键字的底层原理">synchronized关键字的底层原理</a><time datetime="2021-03-28T04:16:22.000Z" title="更新于 2021-03-28 12:16:22">2021-03-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4d5ezg.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Kylin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ClIyIUhj1ue2rcRTsApYCR50-gzGzoHsz',
+      appKey: 'ATug9IScYQBHILhKWEqBHYxM',
+      placeholder: '昵称填入QQ号能获取到QQ头像哦~请输入正确的邮箱地址，你将会快速收到我的回复并且通过邮件通知你！~',
+      avatar: 'robohash',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-cn',
+      recordIP: false,
+      serverURLs: 'https://cliyiuhj.lc-cn-n1-shared.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Jstl标签库 | Kylin</title><meta name="keywords" content="Jstl标签库"><meta name="author" content="Kylin"><meta name="copyright" content="Kylin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="JSTL标签库什么是JSTL标签库 JSTL是apache对EL表达式的扩展（也就是说JSTL依赖EL）， JSTL是标签语言！JSTL标签使用以来非常方便，它与JSP动作 标签一样，只不过它不是JSP内置的标签，需要我们自己导包，以 及指定标签库而已！ 如果你使用MyEclipse开发JavaWeb，那么在把项目发布 到Tomcat时，你会发现，MyEclipse会在lib目录下存放jstl的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jstl标签库">
+<meta property="og:url" content="https://www.kylin.show/2172.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:description" content="JSTL标签库什么是JSTL标签库 JSTL是apache对EL表达式的扩展（也就是说JSTL依赖EL）， JSTL是标签语言！JSTL标签使用以来非常方便，它与JSP动作 标签一样，只不过它不是JSP内置的标签，需要我们自己导包，以 及指定标签库而已！ 如果你使用MyEclipse开发JavaWeb，那么在把项目发布 到Tomcat时，你会发现，MyEclipse会在lib目录下存放jstl的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/kylincw/images/20200701211317.png">
+<meta property="article:published_time" content="2019-10-26T02:57:40.000Z">
+<meta property="article:modified_time" content="2020-04-05T03:57:06.000Z">
+<meta property="article:author" content="Kylin">
+<meta property="article:tag" content="Jstl标签库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/kylincw/images/20200701211317.png"><link rel="shortcut icon" href="https://gitee.com/kylincw/images/raw/master/img/20200807181548.png"><link rel="canonical" href="https://www.kylin.show/2172"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><meta name="google-site-verification" content="gzeyWstt6NoTZKh7YFYNLNziL8HIZ8YH2Ug7xTDX5-Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f76c34daefe747deee7c7be3ead2ba80";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-159334016-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-159334016-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"自上次更新以来已经","messageNext":"天，文章的内容可能已过时或存在差异。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50000,"languages":{"author":"作者: Kylin","link":"链接: ","source":"来源: Kylin","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FF0000","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2020-04-05 11:57:06'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1993646_z05rabxf05h.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/icon.css"><meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="Kylin" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/images/20200701211317.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kylin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Jstl标签库</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-10-26T02:57:40.000Z" title="发表于 2019-10-26 10:57:40">2019-10-26</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2020-04-05T03:57:06.000Z" title="更新于 2020-04-05 11:57:06">2020-04-05</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">1.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>8分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="JSTL标签库"><a href="#JSTL标签库" class="headerlink" title="JSTL标签库"></a>JSTL标签库</h2><p><strong>什么是JSTL标签库 JSTL是apache对EL表达式的扩展（也就是说JSTL依赖EL）， JSTL是标签语言！JSTL标签使用以来非常方便，它与JSP动作 标签一样，只不过它不是JSP内置的标签，需要我们自己导包，以 及指定标签库而已！</strong></p>
+<p><strong>如果你使用MyEclipse开发JavaWeb，那么在把项目发布 到Tomcat时，你会发现，MyEclipse会在lib目录下存放jstl的 Jar包！如果你没有使用MyEclipse开发那么需要自己来导入这个 JSTL的Jar包：jstl-1.2.jar。</strong> </p>
+<p><strong>JSTL标签库的作用 用来提升在JSP页面的逻辑代码的编码效率，使用标签来替换逻辑代码的直接书写，高效，美观，整洁，易读</strong></p>
+<a id="more"></a>
+<h2 id="Jstl标签库的使用"><a href="#Jstl标签库的使用" class="headerlink" title="Jstl标签库的使用"></a>Jstl标签库的使用</h2><ul>
+<li><p>核心标签库</p>
+<ul>
+<li><p>1.导入jar包</p>
+</li>
+<li><p>2.声明jstl标签库的引入(核心标签库)</p>
+<ul>
+<li><strong>&lt;%@taglib prefix=”c” uri=”<a target="_blank" rel="noopener" href="http://java.sun.com/jsp/jstl/core&quot;">http://java.sun.com/jsp/jstl/core&quot;</a> %&gt;</strong></li>
+</ul>
+</li>
+<li><p>基本标签：</p>
+<ul>
+<li><strong>&lt;-c:out value=”数据” default=”默认值”&gt;&lt;-/c:out&gt;</strong><ul>
+<li><strong>数据可以为常量值也可以是EL表达式。</strong></li>
+<li><strong>作用：将数据输出给客户端。</strong></li>
+</ul>
+</li>
+<li><strong>&lt;-c:set var=”hello” value=”hello pageContext” scope=”page”&gt;&lt;-/c:set&gt;</strong><ul>
+<li><strong>作用：存储数据到作用域对象中</strong></li>
+<li><strong>var：表示存储的键名</strong></li>
+<li><strong>value：表示存储的数据</strong></li>
+<li><strong>scope：表示要存储的作用域对象 page request session application</strong></li>
+</ul>
+</li>
+<li><strong>&lt;-c:remove var=”hello” scope=”page”/&gt;</strong><ul>
+<li><strong>作用：删除作用域中的指定键的数据。</strong></li>
+<li><strong>var：表示要删除的键的名字</strong></li>
+<li><strong>scope：表示要删除的作用域（可选）</strong></li>
+<li><strong>注意：如果在不指定作用域的情况使用该标签删除数据，会将四个作用域对象中的符合要求的数据全部删除。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>逻辑标签：</p>
+<ul>
+<li><p><strong>&lt;-c:if test=”${表达式}”&gt;前端代码&lt;-/c:if&gt;</strong></p>
+<ul>
+<li><strong>作用：进行逻辑判断，相当于java代码的单分支判断。</strong></li>
+</ul>
+</li>
+<li><p>&lt;-c:choose&gt;<br>  &lt;-c:when test=””&gt;执行内容&lt;-/c:when&gt;<br>  &lt;-c:when test=””&gt;执行内容&lt;-/c:when&gt;<br>…<br>  &lt;-c:otherwise&gt;执行内容&lt;-/c:otherwise&gt;<br>&lt;- /c:choose&gt;</p>
+</li>
+<li><p><strong>作用：用来进行多条件的逻辑判断，类似java中的多分支语句</strong></p>
+<ul>
+<li><strong>注意：条件成立只会执行一次，都不成立则执行otherwise</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>循环标签:</p>
+<ul>
+<li><strong>&lt;-c:forEach begin=”1” end=”4” step=”2”&gt;循环体&lt;-/c:forEach&gt;</strong><br>  <strong>作用：循环内容进行处理</strong></li>
+<li>使用:<ul>
+<li><strong>begin:声明循环开始位置</strong></li>
+<li><strong>end:声明循环结束位置</strong></li>
+<li><strong>step：设置步长</strong></li>
+<li><strong>varStatus:声明变量记录每次循环的数据(角标，次数，是否是第一次循环，是否是最后一次循环)</strong><ul>
+<li><strong>注意:数据存储在作用域中，需要使用EL表达式获取。</strong></li>
+<li><strong>例如：${vs.index}–${vs.count}–${vs.first}–${vs.last}</strong></li>
+</ul>
+</li>
+<li><strong>items:声明要遍历的对象。结合EL表达式获取对象</strong></li>
+<li><strong>var:声明变量记录每次循环的结果。存储在作用域中，需要使用EL表达式获取。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>注意：逻辑判断标签需要依赖于EL的逻辑运算，也就是表达式中涉及到的数据必须从作用域中获取。</strong><br><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200405115704.png" alt=""></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">&quot;java&quot;</span> <span class="keyword">import</span>=<span class="string">&quot;java.util.*&quot;</span> pageEncoding=<span class="string">&quot;utf-8&quot;</span>%&gt;</span><br><span class="line">&lt;%<span class="meta">@taglib</span> prefix=<span class="string">&quot;c&quot;</span> uri=<span class="string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	request.setAttribute(<span class="string">&quot;str&quot;</span>,<span class="string">&quot;今天天气真好，适合学习&quot;</span>);</span><br><span class="line">	<span class="comment">//request.setAttribute(&quot;hello&quot;,&quot;hello request&quot;);</span></span><br><span class="line">%&gt;</span><br><span class="line">&lt;!--基本标签学习  --&gt;</span><br><span class="line">&lt;h3&gt;基本标签学习&lt;/h3&gt;</span><br><span class="line">&lt;c:out value=&quot;哈哈&quot;&gt;&lt;/c:out&gt;---哈哈--$&#123;str2&#125;&lt;br /&gt;</span><br><span class="line">&lt;c:out value=&quot;$&#123;str2&#125;&quot; default=&quot;嘿嘿&quot;&gt;&lt;/c:out&gt;&lt;br /&gt;</span><br><span class="line">&lt;c:set var=&quot;hello&quot; value=&quot;hello pageContext&quot; scope=&quot;page&quot;&gt;&lt;/c:set&gt;&lt;br /&gt;</span><br><span class="line">&lt;c:set var=&quot;hello&quot; value=&quot;hello request&quot; scope=&quot;request&quot;&gt;&lt;/c:set&gt;&lt;br /&gt;</span><br><span class="line">&lt;c:set var=&quot;hello&quot; value=&quot;hello session&quot; scope=&quot;session&quot;&gt;&lt;/c:set&gt;&lt;br /&gt;</span><br><span class="line">&lt;c:set var=&quot;hello&quot; value=&quot;hello application&quot; scope=&quot;application&quot;&gt;&lt;/c:set&gt;&lt;br /&gt;</span><br><span class="line">&lt;%-- &lt;c:out value=&quot;$&#123;applicationScope.hello&#125;&quot;&gt;&lt;/c:out&gt; --%&gt;</span><br><span class="line">&lt;c:remove <span class="keyword">var</span>=<span class="string">&quot;hello&quot;</span> scope=<span class="string">&quot;page&quot;</span>/&gt;&lt;br /&gt;</span><br><span class="line">&lt;c:out value=&quot;$&#123;hello&#125;&quot;&gt;&lt;/c:out&gt;</span><br><span class="line">&lt;hr /&gt;</span><br><span class="line">&lt;h3&gt;逻辑标签学习&lt;/h3&gt;</span><br><span class="line">&lt;!--传统方式：  --&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	<span class="keyword">int</span>  a=<span class="number">4</span>;</span><br><span class="line">	<span class="keyword">if</span>(a&gt;<span class="number">3</span>)&#123;</span><br><span class="line">%&gt;</span><br><span class="line">&lt;b&gt;今天的天气有点热哦&lt;/b&gt;</span><br><span class="line">&lt;%&#125; %&gt;</span><br><span class="line">&lt;!--jstl方式： --&gt;</span><br><span class="line">&lt;c:set var=&quot;a&quot; value=&quot;4&quot;&gt;&lt;/c:set&gt;</span><br><span class="line">&lt;c:<span class="keyword">if</span> test=<span class="string">&quot;$&#123;a&gt;3&#125;&quot;</span>&gt;</span><br><span class="line">	&lt;b&gt;今天的天气有点热哦&lt;/b&gt;</span><br><span class="line">&lt;/c:if&gt;</span><br><span class="line">&lt;br /&gt;</span><br><span class="line">&lt;c:set var=&quot;score&quot; value=&quot;68&quot;&gt;&lt;/c:set&gt;</span><br><span class="line">&lt;c:choose&gt;</span><br><span class="line">	&lt;c:when test=<span class="string">&quot;$&#123;score&gt;=90&#125;&quot;</span>&gt;</span><br><span class="line">		&lt;i&gt;奖励吃鸡装配一套&lt;/i&gt;</span><br><span class="line">	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=<span class="string">&quot;$&#123;score&lt;90&amp;&amp;score&gt;=80&#125;&quot;</span>&gt;</span><br><span class="line">		&lt;i&gt;奖励空投箱&lt;/i&gt;</span><br><span class="line">	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:when test=<span class="string">&quot;$&#123;score&lt;80&amp;&amp;score&gt;=70&#125;&quot;</span>&gt;</span><br><span class="line">		&lt;i&gt;无奖励无惩罚&lt;/i&gt;</span><br><span class="line">	&lt;/c:when&gt;</span><br><span class="line">	&lt;c:otherwise&gt;</span><br><span class="line">		&lt;i&gt;男女混合双打&lt;/i&gt;</span><br><span class="line">	&lt;/c:otherwise&gt;</span><br><span class="line">&lt;/c:choose&gt;</span><br><span class="line">&lt;hr /&gt;</span><br><span class="line">&lt;h3&gt;JSTL的循环标签&lt;/h3&gt;</span><br><span class="line">&lt;!--传统方式的表格  --&gt;</span><br><span class="line">&lt;table border=<span class="string">&quot;1px&quot;</span>&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;课程名称&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;教师&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;价格&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;重要性&lt;/td&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;%</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">3</span>;i++)&#123;</span><br><span class="line">			<span class="keyword">if</span>(i==<span class="number">2</span>)&#123;</span><br><span class="line">	%&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;java&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;张老师&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;不要钱&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;非常重要&lt;/td&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;%&#125;&#125; %&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;%</span><br><span class="line">	ArrayList&lt;String&gt; list=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">	list.add(<span class="string">&quot;a&quot;</span>);</span><br><span class="line">	list.add(<span class="string">&quot;b&quot;</span>);</span><br><span class="line">	list.add(<span class="string">&quot;c&quot;</span>);</span><br><span class="line">	list.add(<span class="string">&quot;d&quot;</span>);</span><br><span class="line">	request.setAttribute(<span class="string">&quot;list&quot;</span>,list);</span><br><span class="line">	HashMap&lt;String,String&gt; map=<span class="keyword">new</span> HashMap&lt;String,String&gt;();</span><br><span class="line">	map.put(<span class="string">&quot;a1&quot;</span>, <span class="string">&quot;哈哈哈&quot;</span>);</span><br><span class="line">	map.put(<span class="string">&quot;b1&quot;</span>, <span class="string">&quot;嘿嘿&quot;</span>);</span><br><span class="line">	request.setAttribute(<span class="string">&quot;map&quot;</span>,map);</span><br><span class="line"></span><br><span class="line">%&gt;</span><br><span class="line">&lt;!-- 使用JSTL方式完成循环 --&gt;</span><br><span class="line">&lt;!--常量循环  --&gt;</span><br><span class="line">&lt;c:forEach begin=<span class="string">&quot;0&quot;</span> end=<span class="string">&quot;4&quot;</span> step=<span class="string">&quot;1&quot;</span> varStatus=<span class="string">&quot;vs&quot;</span>&gt;</span><br><span class="line">	<span class="number">1111</span>---$&#123;vs.index&#125;--$&#123;vs.count&#125;--$&#123;vs.first&#125;--$&#123;vs.last&#125;&lt;br /&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line">&lt;!--动态循环  --&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">&quot;$&#123;list&#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;str&quot;</span>&gt;</span><br><span class="line">	$&#123;str&#125;&lt;br /&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br><span class="line">&lt;!--创建表格数据  --&gt;</span><br><span class="line">&lt;table border=<span class="string">&quot;1px&quot;</span>&gt;</span><br><span class="line">	&lt;tr&gt;</span><br><span class="line">		&lt;td&gt;课程名称&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;教师&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;价格&lt;/td&gt;</span><br><span class="line">		&lt;td&gt;重要性&lt;/td&gt;</span><br><span class="line">	&lt;/tr&gt;</span><br><span class="line">	&lt;c:forEach items=<span class="string">&quot;$&#123;list&#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;s&quot;</span>&gt;</span><br><span class="line">		&lt;tr&gt;</span><br><span class="line">			&lt;td&gt;$&#123;s&#125;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;$&#123;s&#125;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;$&#123;s&#125;&lt;/td&gt;</span><br><span class="line">			&lt;td&gt;$&#123;s&#125;&lt;/td&gt;</span><br><span class="line">		&lt;/tr&gt;</span><br><span class="line">	&lt;/c:forEach&gt;</span><br><span class="line">&lt;/table&gt;</span><br><span class="line">&lt;!--遍历map集合  --&gt;</span><br><span class="line">&lt;c:forEach items=<span class="string">&quot;$&#123;map&#125;&quot;</span> <span class="keyword">var</span>=<span class="string">&quot;m&quot;</span>&gt;</span><br><span class="line">	$&#123;m.key&#125;--$&#123;m.value&#125; &lt;br /&gt;</span><br><span class="line">&lt;/c:forEach&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kylin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.kylin.show/2172.html">https://www.kylin.show/2172.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.kylin.show" target="_blank">Kylin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Jstl%E6%A0%87%E7%AD%BE%E5%BA%93/">Jstl标签库</a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/kylincw/images/20200701211317.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/8602.html"><img class="prev-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4x28xo.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Servlet的过滤器和监听器</div></div></a></div><div class="next-post pull-right"><a href="/32496.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-oxm7vp.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">El表达式</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Kylin</div><div class="author-info__description">学习不易，努力努力~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">330</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">410</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">90</div></a></div></div><a class="button--animated" id="card-info-btn"><i class="fas fa-bookmark"></i><span>加入书签</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kylincw" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=171346168&amp;Service=300&amp;sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="qq"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/53836035" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="mailto:zhang171346168@qq.com" target="_blank" title="Email"><i class="iconfont icon-email1"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">学习不易，努力努力！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JSTL%E6%A0%87%E7%AD%BE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">JSTL标签库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Jstl%E6%A0%87%E7%AD%BE%E5%BA%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">Jstl标签库的使用</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？"><img data-lazy-src="https://img.alicdn.com/tfs/TB1CdM5cvWG3KVjSZFPXXXaiXXa-1920-640.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="阿里巴巴建议HashMap初始化时，指定容量大小？"/></a><div class="content"><a class="title" href="/59595.html" title="阿里巴巴建议HashMap初始化时，指定容量大小？">阿里巴巴建议HashMap初始化时，指定容量大小？</a><time datetime="2021-05-31T10:28:38.525Z" title="更新于 2021-05-31 18:28:38">2021-05-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/42096.html" title="SSM整合"><img data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200423185957.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="SSM整合"/></a><div class="content"><a class="title" href="/42096.html" title="SSM整合">SSM整合</a><time datetime="2021-04-09T12:37:34.000Z" title="更新于 2021-04-09 20:37:34">2021-04-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/52941.html" title="Spring事务详解"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-4do8mo.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring事务详解"/></a><div class="content"><a class="title" href="/52941.html" title="Spring事务详解">Spring事务详解</a><time datetime="2021-03-31T09:07:19.000Z" title="更新于 2021-03-31 17:07:19">2021-03-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/15002.html" title="MySQL之Explain性能分析"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200418114518.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="MySQL之Explain性能分析"/></a><div class="content"><a class="title" href="/15002.html" title="MySQL之Explain性能分析">MySQL之Explain性能分析</a><time datetime="2021-03-29T07:12:57.000Z" title="更新于 2021-03-29 15:12:57">2021-03-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/53611.html" title="synchronized关键字的底层原理"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="synchronized关键字的底层原理"/></a><div class="content"><a class="title" href="/53611.html" title="synchronized关键字的底层原理">synchronized关键字的底层原理</a><time datetime="2021-03-28T04:16:22.000Z" title="更新于 2021-03-28 12:16:22">2021-03-28</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://cdn.jsdelivr.net/gh/kylincw/images/20200701211317.png')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2021 By Kylin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ClIyIUhj1ue2rcRTsApYCR50-gzGzoHsz',
+      appKey: 'ATug9IScYQBHILhKWEqBHYxM',
+      placeholder: '昵称填入QQ号能获取到QQ头像哦~请输入正确的邮箱地址，你将会快速收到我的回复并且通过邮件通知你！~',
+      avatar: 'robohash',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-cn',
+      recordIP: false,
+      serverURLs: 'https://cliyiuhj.lc-cn-n1-shared.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>
