@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://www.kylin.show/"/>
-  <updated>2021-06-01T03:55:32.490Z</updated>
+  <updated>2021-06-01T09:02:16.180Z</updated>
   <id>https://www.kylin.show/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>shiro权限框架</title>
+    <link href="https://www.kylin.show/42111.html"/>
+    <id>https://www.kylin.show/42111.html</id>
+    <published>2021-06-01T08:55:10.000Z</published>
+    <updated>2021-06-01T09:02:16.180Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="权限的管理"><a href="#权限的管理" class="headerlink" title="权限的管理"></a>权限的管理</h2><h3 id="什么是权限管理"><a href="#什么是权限管理" class="headerlink" title="什么是权限管理"></a>什么是权限管理</h3><p>基本上涉及到用户参与的系统都要进行权限管理，权限管理属于系统安全的范畴，权限管理实现<code>对用户访问系统的控制</code>，按照安全规则或者<a href="http://baike.baidu.com/view/160028.htm">安全策略</a>控制用户可以访问而且只能访问自己被授权的资源。</p><p>权限管理包括用户<code>身份认证</code>和<code>授权</code>两部分，简称<code>认证授权</code>。对于需要访问控制的资源用户首先经过身份认证，认证通过后用户具有该资源的访问权限方可访问。</p><h3 id="什么是身份认证"><a href="#什么是身份认证" class="headerlink" title="什么是身份认证"></a>什么是身份认证</h3><p><code>身份认证</code>，就是判断一个用户是否为合法用户的处理过程。最常用的简单身份认证方式是系统通过核对用户输入的用户名和口令，看其是否与系统中存储的该用户的用户名和口令一致，来判断用户身份是否正确。对于采用<a href="http://baike.baidu.com/view/5628.htm">指纹</a>等系统，则出示指纹；对于硬件Key等刷卡系统，则需要刷卡。</p><h3 id="什么是授权"><a href="#什么是授权" class="headerlink" title="什么是授权"></a>什么是授权</h3><p><code>授权，即访问控制</code>，控制谁能访问哪些资源。主体进行身份认证后需要分配权限方可访问系统的资源，对于某些资源没有权限是无法访问的。</p><h2 id="什么是shiro"><a href="#什么是shiro" class="headerlink" title="什么是shiro"></a>什么是shiro</h2><blockquote><p><strong>Apache Shiro™</strong> is a powerful and easy-to-use Java security framework that performs authentication, authorization, cryptography, and session management. With Shiro’s easy-to-understand API, you can quickly and easily secure any application – from the smallest mobile applications to the largest web and enterprise applications.  </p><p>Shiro 是一个功能强大且易于使用的Java安全框架，它执行身份验证、授权、加密和会话管理。使用Shiro易于理解的API，您可以快速轻松地保护任何应用程序—从最小的移动应用程序到最大的web和企业应用程序。</p></blockquote><p><code>Shiro是apache旗下一个开源框架，它将软件系统的安全认证相关的功能抽取出来，实现用户身份认证，权限授权、加密、会话管理等功能，组成了一个通用的安全认证框架。</code></p><h2 id="核心架构"><a href="#核心架构" class="headerlink" title="核心架构"></a>核心架构</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/image-20210601170011131.png" alt="image-20210601170011131"></p><h3 id="Subject"><a href="#Subject" class="headerlink" title="Subject"></a>Subject</h3><p><code>Subject即主体</code>，外部应用与subject进行交互，subject记录了当前操作用户，将用户的概念理解为当前操作的主体，可能是一个通过浏览器请求的用户，也可能是一个运行的程序。    Subject在shiro中是一个接口，接口中定义了很多认证授相关的方法，外部程序通过subject进行认证授，而subject是通过SecurityManager安全管理器进行认证授权</p><h3 id="SecurityManager"><a href="#SecurityManager" class="headerlink" title="SecurityManager"></a>SecurityManager</h3><p><code>SecurityManager即安全管理器</code>，对全部的subject进行安全管理，它是shiro的核心，负责对所有的subject进行安全管理。通过SecurityManager可以完成subject的认证、授权等，实质上SecurityManager是通过Authenticator进行认证，通过Authorizer进行授权，通过SessionManager进行会话管理等。</p><p><code>SecurityManager是一个接口，继承了Authenticator, Authorizer, SessionManager这三个接口。</code></p><h3 id="Authenticator"><a href="#Authenticator" class="headerlink" title="Authenticator"></a>Authenticator</h3><p><code>Authenticator即认证器</code>，对用户身份进行认证，Authenticator是一个接口，shiro提供ModularRealmAuthenticator实现类，通过ModularRealmAuthenticator基本上可以满足大多数需求，也可以自定义认证器。</p><h3 id="Authorizer"><a href="#Authorizer" class="headerlink" title="Authorizer"></a>Authorizer</h3><p><code>Authorizer即授权器</code>，用户通过认证器认证通过，在访问功能时需要通过授权器判断用户是否有此功能的操作权限。</p><h3 id="Realm"><a href="#Realm" class="headerlink" title="Realm"></a>Realm</h3><p><code>Realm即领域</code>，相当于datasource数据源，securityManager进行安全认证需要通过Realm获取用户权限数据，比如：如果用户身份数据在数据库那么realm就需要从数据库获取用户身份信息。</p><ul><li>​    注意：不要把realm理解成只是从数据源取数据，在realm中还有认证授权校验的相关的代码。</li></ul><h3 id="SessionManager"><a href="#SessionManager" class="headerlink" title="SessionManager"></a>SessionManager</h3><p><code>sessionManager即会话管理</code>，shiro框架定义了一套会话管理，它不依赖web容器的session，所以shiro可以使用在非web应用上，也可以将分布式应用的会话集中在一点管理，此特性可使它实现单点登录。</p><h3 id="SessionDAO"><a href="#SessionDAO" class="headerlink" title="SessionDAO"></a>SessionDAO</h3><p><code>SessionDAO即会话dao</code>，是对session会话操作的一套接口，比如要将session存储到数据库，可以通过jdbc将会话存储到数据库。</p><h3 id="CacheManager"><a href="#CacheManager" class="headerlink" title="CacheManager"></a>CacheManager</h3><p><code>CacheManager即缓存管理</code>，将用户权限数据存储在缓存，这样可以提高性能。</p><h3 id="Cryptography"><a href="#Cryptography" class="headerlink" title="Cryptography"></a>Cryptography</h3><p>​    <code>Cryptography即密码管理</code>，shiro提供了一套加密/解密的组件，方便开发。比如提供常用的散列、加/解密等功能。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;权限的管理&quot;&gt;&lt;a href=&quot;#权限的管理&quot; class=&quot;headerlink&quot; title=&quot;权限的管理&quot;&gt;&lt;/a&gt;权限的管理&lt;/h2&gt;&lt;h3 id=&quot;什么是权限管理&quot;&gt;&lt;a href=&quot;#什么是权限管理&quot; class=&quot;headerlink&quot; title=
+      
+    
+    </summary>
+    
+    
+      <category term="shiro" scheme="https://www.kylin.show/categories/shiro/"/>
+    
+    
+      <category term="shiro" scheme="https://www.kylin.show/tags/shiro/"/>
+    
+      <category term="权限管理" scheme="https://www.kylin.show/tags/%E6%9D%83%E9%99%90%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>设计模式之简单工厂模式</title>
@@ -593,34 +621,6 @@
       <category term="网络编程" scheme="https://www.kylin.show/tags/%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/"/>
     
       <category term="Netty" scheme="https://www.kylin.show/tags/Netty/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>TCP/IP参考模型及比较</title>
-    <link href="https://www.kylin.show/34178.html"/>
-    <id>https://www.kylin.show/34178.html</id>
-    <published>2020-11-30T13:52:11.000Z</published>
-    <updated>2020-11-30T14:11:33.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/image-20201130221124297.png" alt="image-20201130221124297"></p><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/image-20201130215406571.png" alt="image-20201130215406571"></p><p><strong><mark>OSI参考模型是理论模型，TCP/IP是实际使用模型。</mark></strong></p><p><strong><mark>TCP/IP协议栈先出来使用实践，后面再抽象具体成TCP/IP参考模型。</mark></strong></p><h2 id="相同点"><a href="#相同点" class="headerlink" title="相同点"></a>相同点</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/image-20201130220241212.png" alt="image-20201130220241212"></p><ol><li><p>都分层</p></li><li><p>基于独立的协议栈的概念</p></li><li><p>可以实现异构网络互联</p></li></ol><h2 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/image-20201130220420879.png" alt="image-20201130220420879"></p><p><strong>面向连接分为三个阶段，第一是建立连接，在此阶段，发出一个建立连接的请求。只有在连接成功建立之后，才能开始数据传输，这是第二阶段。接着，当数据传输完毕，必须释放连接。而面向无连接没有这么多阶段，它直接进行数据传输。</strong>（TCP，UDP）</p><ol><li>OSI定义三点:服务、协议、接口</li><li>0SI先出现，参考模型先于协议发明，不偏向特定协议</li><li>TCP/IP设计之初就考虑到异构网互联问题，将IP作为重要层次</li></ol><table><thead><tr><th></th><th>OSI参考模型</th><th>TCP/IP模型</th></tr></thead><tbody><tr><td>网络层</td><td>无连接+面向连接</td><td>无连接</td></tr><tr><td>传输层</td><td>面向连接</td><td>无连接+面向连接</td></tr></tbody></table><h2 id="5层参考模型"><a href="#5层参考模型" class="headerlink" title="5层参考模型"></a>5层参考模型</h2><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/image-20201130220919132.png" alt="image-20201130220919132"></p><p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/image-20201130221039607.png" alt="image-20201130221039607"></p><p>和之前的7层差不多。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;img src= &quot;https://gitee.com/kylincw/images/raw/master/loading.gif&quot; data-lazy-src=&quot;https://gitee.com/kylincw/images/raw/master/img/image-
-      
-    
-    </summary>
-    
-    
-      <category term="计算机网络" scheme="https://www.kylin.show/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
-    
-      <category term="体系结构" scheme="https://www.kylin.show/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84/"/>
-    
-    
-      <category term="计算机网络" scheme="https://www.kylin.show/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
