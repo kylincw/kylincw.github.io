@@ -8,15 +8,22 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/Redis/</loc>
-        <lastmod>2022-01-04T00:51:44.289Z</lastmod>
+        <loc>https://www.codekylin.cn/categories/Java/JUC/</loc>
+        <lastmod>2022-01-04T07:52:33.967Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/JUC/</loc>
-        <lastmod>2022-01-03T12:31:45.697Z</lastmod>
+        <loc>https://www.codekylin.cn/categories/Java/</loc>
+        <lastmod>2022-01-04T07:52:33.967Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Redis/</loc>
+        <lastmod>2022-01-04T00:51:44.289Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -106,13 +113,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/Java/</loc>
-        <lastmod>2021-05-31T10:34:48.437Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/categories/SSM/</loc>
         <lastmod>2021-04-09T12:37:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -136,13 +136,6 @@
     <url>
         <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/</loc>
         <lastmod>2021-03-29T07:12:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/Java/JUC/</loc>
-        <lastmod>2021-03-28T04:16:22.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
