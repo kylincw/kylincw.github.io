@@ -9,7 +9,21 @@
 
     <url>
         <loc>https://www.codekylin.cn/categories/Docker/</loc>
-        <lastmod>2022-01-29T10:03:35.460Z</lastmod>
+        <lastmod>2022-01-29T12:07:22.928Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Docker/compose/</loc>
+        <lastmod>2022-01-29T12:05:44.932Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Docker/CIG/</loc>
+        <lastmod>2022-01-29T12:05:44.925Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
