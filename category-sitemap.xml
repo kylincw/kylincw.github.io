@@ -8,6 +8,13 @@
     </url>
 
     <url>
+        <loc>https://www.codekylin.cn/categories/OAuth/</loc>
+        <lastmod>2022-03-04T11:00:00.568Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.codekylin.cn/categories/Spring/</loc>
         <lastmod>2022-03-02T14:10:30.701Z</lastmod>
         <changefreq>weekly</changefreq>

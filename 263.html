@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OAuth2.0的四种授权 | Kylin</title><meta name="keywords" content="OAuth"><meta name="author" content="Kylin"><meta name="copyright" content="Kylin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="OAuth 2.0 的四种方式 - 阮一峰的网络日志 (ruanyifeng.com) 10 分钟理解什么是 OAuth 2.0 协议 | Deepzz’s Blog  概述OAuth 2.0 的标准是 RFC 6749 文件。该文件先解释了 OAuth 是什么。  OAuth 引入了一个授权层，用来分离两种不同的角色：客户端和资源所有者。……资源所有者同意以后，资源服务器可以向客户端颁发令牌。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OAuth2.0的四种授权">
+<meta property="og:url" content="https://www.codekylin.cn/263.html">
+<meta property="og:site_name" content="Kylin">
+<meta property="og:description" content="OAuth 2.0 的四种方式 - 阮一峰的网络日志 (ruanyifeng.com) 10 分钟理解什么是 OAuth 2.0 协议 | Deepzz’s Blog  概述OAuth 2.0 的标准是 RFC 6749 文件。该文件先解释了 OAuth 是什么。  OAuth 引入了一个授权层，用来分离两种不同的角色：客户端和资源所有者。……资源所有者同意以后，资源服务器可以向客户端颁发令牌。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/kylincw/images/raw/master/img/20200418114719.jpg">
+<meta property="article:published_time" content="2022-03-04T10:18:25.000Z">
+<meta property="article:modified_time" content="2022-03-04T11:00:00.568Z">
+<meta property="article:author" content="Kylin">
+<meta property="article:tag" content="OAuth">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/kylincw/images/raw/master/img/20200418114719.jpg"><link rel="shortcut icon" href="https://gitee.com/kylincw/images/raw/master/img/20200807181548.png"><link rel="canonical" href="https://www.codekylin.cn/263"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><meta name="google-site-verification" content="gzeyWstt6NoTZKh7YFYNLNziL8HIZ8YH2Ug7xTDX5-Y"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f76c34daefe747deee7c7be3ead2ba80";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-159334016-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-159334016-1');
+</script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  noticeOutdate: {"limitDay":90,"position":"top","messagePrev":"自上次更新以来已经","messageNext":"天，文章的内容可能已过时或存在差异。"},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50000,"languages":{"author":"作者: Kylin","link":"链接: ","source":"来源: Kylin","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#FF0000","bgDark":"#2d3035","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-03-04 19:00:00'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const fontSizeVal = saveToLocal.get('global-font-size')
+    if (fontSizeVal !== undefined) {
+      document.documentElement.style.setProperty('--global-font-size', fontSizeVal + 'px')
+    }
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/custom.css"><link rel="stylesheet" href="//at.alicdn.com/t/font_1993646_z05rabxf05h.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kylincw/img/img/icon.css"><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Kylin" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="onerror=null;src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">361</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">427</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">101</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/kylincw/images/raw/master/img/20200418114719.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kylin</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">OAuth2.0的四种授权</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-03-04T10:18:25.000Z" title="发表于 2022-03-04 18:18:25">2022-03-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-03-04T11:00:00.568Z" title="更新于 2022-03-04 19:00:00">2022-03-04</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/OAuth/">OAuth</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>9分钟</span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2019/04/oauth-grant-types.html">OAuth 2.0 的四种方式 - 阮一峰的网络日志 (ruanyifeng.com)</a></p>
+<p><a target="_blank" rel="noopener" href="https://deepzz.com/post/what-is-oauth2-protocol.html">10 分钟理解什么是 OAuth 2.0 协议 | Deepzz’s Blog</a></p>
+</blockquote>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>OAuth 2.0 的标准是 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749">RFC 6749</a> 文件。该文件先解释了 OAuth 是什么。</p>
+<blockquote>
+<p>OAuth 引入了一个授权层，用来分离两种不同的角色：客户端和资源所有者。……资源所有者同意以后，资源服务器可以向客户端颁发令牌。客户端通过令牌，去请求数据。</p>
+</blockquote>
+<p>这段话的意思就是，<strong>OAuth 的核心就是向第三方应用颁发令牌。</strong>然后，RFC 6749 接着写道：</p>
+<blockquote>
+<p>（由于互联网有多种场景，）本标准定义了获得令牌的四种授权方式（authorization grant ）。</p>
+</blockquote>
+<p>OAuth 2.0 列举了四种授权类型，分别用于不同的场景：</p>
+<ul>
+<li>Authorization Code（授权码 code）：服务器与客户端配合使用。</li>
+<li>Implicit（隐式 token）：用于移动应用程序或 Web 应用程序（在用户设备上运行的应用程序）。</li>
+<li>Resource Owner Password Credentials（资源所有者密码凭证 password）：资源所有者和客户端之间具有高度信任时（例如，客户端是设备的操作系统的一部分，或者是一个高度特权应用程序），以及当其他授权许可类型（例如授权码）不可用时被使用。</li>
+<li>Client Credentials（客户端证书 client_credentials）：当客户端代表自己表演（客户端也是资源所有者）或者基于与授权服务器事先商定的授权请求对受保护资源的访问权限时，客户端凭据被用作为授权许可。</li>
+</ul>
+<blockquote>
+<p>注意，不管哪一种授权方式，第三方应用申请令牌之前，都必须先到系统备案，说明自己的身份，然后会拿到两个身份识别码：客户端 ID（client ID）和客户端密钥（client secret）。这是为了防止令牌被滥用，没有备案过的第三方应用，是不会拿到令牌的</p>
+</blockquote>
+<h2 id="授权码"><a href="#授权码" class="headerlink" title="授权码"></a>授权码</h2><p><strong>授权码（authorization code）方式，指的是第三方应用先申请一个授权码，然后再用该码获取令牌。</strong></p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://www.wangbase.com/blogimg/asset/201904/bg2019040905.jpg" alt="img"></p>
+<p>这种方式是最常用的流程，安全性也最高，它适用于那些有后端的 Web 应用。授权码通过前端传送，令牌则是储存在后端，而且所有与资源服务器的通信都在后端完成。这样的前后端分离，可以避免令牌泄漏。</p>
+<p>该方式需要资源服务器的参与，应用场景大概是：</p>
+<ol>
+<li>资源拥有者（用户）需要登录客户端（APP），他选择了第三方登录。</li>
+<li>客户端（APP）重定向到第三方授权服务器。此时客户端携带了客户端标识（client_id），那么第三方就知道这是哪个客户端，资源拥有者确定（拒绝）授权后需要重定向到哪里。</li>
+<li>用户确认授权，客户端（APP）被重定向到注册时给定的 URI，并携带了第三方给定的 code。</li>
+<li>在重定向的过程中，客户端拿到 code 与 <code>client_id</code>、<code>client_secret</code> 去授权服务器请求令牌，如果成功，直接请求资源服务器获取资源，整个过程，用户代理是不会拿到令牌 token 的。</li>
+<li>客户端（APP）拿到令牌 token 后就可以向第三方的资源服务器请求资源了。</li>
+</ol>
+<p>具体说明，这里以 coding 和 github 为例。当我想在 coding 上通过 github 账号登录时：</p>
+<p>1、<code>GET 请求</code> 点击登录，重定向到 github 的授权端点：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/login/oauth/authorize?</span><br><span class="line">  response_type=code&amp;</span><br><span class="line">  client_id=a5ce5a6c7e8c39567ca0&amp;</span><br><span class="line">  redirect_uri=https://coding.net/api/oauth/github/callback&amp;</span><br><span class="line">  scope=user:email</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">response_type</td>
+<td align="left">必须，固定为 code，表示这是一个授权码请求。</td>
+</tr>
+<tr>
+<td align="left">client_id</td>
+<td align="left">必须，在 github 注册获得的客户端 ID。</td>
+</tr>
+<tr>
+<td align="left">redirect_uri</td>
+<td align="left">可选，通过客户端注册的重定向 URI（一般要求且与注册时一致）。</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">可选，请求资源范围，多个空格隔开。</td>
+</tr>
+<tr>
+<td align="left">state</td>
+<td align="left">可选（推荐），如果存在，原样返回给客户端。</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<p><code>https://coding.net/api/oauth/github/callback?code=fb6a88dc09e843b33f</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">code</td>
+<td align="left">必须。授权码</td>
+</tr>
+<tr>
+<td align="left">state</td>
+<td align="left">如果出现在请求中，必须包含。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>授权错误</p>
+</blockquote>
+<p>第一种，客户端没有被识别或错误的重定向 URI，授权服务器没有必要重定向资源拥有者到重定向URI，而是通知资源拥有者发生了错误。</p>
+<p>第二种，客户端被正确地授权了，但是其他某些事情失败了。这种情况下下面地错误响应会被发送到客户端，包括在重定向 URI 中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://coding.net/api/oauth/github/callback?</span><br><span class="line">  error=redirect_uri_mismatch&amp;</span><br><span class="line">  error_description=The+redirect_uri+MUST+match+the+registered+callback+URL+for+this+application.&amp;</span><br><span class="line">  error_uri=https%3A%2F%2Fdeveloper.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-authorization-request-errors%2F%23redirect-uri-mismatch</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">error</td>
+<td align="left">必须，必须是预先定义的错误码: <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc6749#section-4.1.2.1">错误码</a>。</td>
+</tr>
+<tr>
+<td align="left">error_description</td>
+<td align="left">可选，错误描述</td>
+</tr>
+<tr>
+<td align="left">error_uri</td>
+<td align="left">可选，指向可解读错误的 URI</td>
+</tr>
+<tr>
+<td align="left">state</td>
+<td align="left">必须，如果出现在授权请求中</td>
+</tr>
+</tbody></table>
+<p>2、<code>POST 请求</code> 获取令牌 token，当获取到授权码 code 后，客户端需要用它获取访问令牌：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/login/oauth/access_token?</span><br><span class="line">  client_id=a5ce5a6c7e8c39567ca0&amp;</span><br><span class="line">  client_secret=xxxx&amp;</span><br><span class="line">  grant_type=authorization_code&amp;</span><br><span class="line">  code=fb6a88dc09e843b33f&amp;</span><br><span class="line">  redirect_uri=https://coding.net/api/oauth/github/callback</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">grant_type</td>
+<td align="left">必须，固定为 authorization_code／refresh_token。</td>
+</tr>
+<tr>
+<td align="left">code</td>
+<td align="left">必须，上一步获取到的授权码。</td>
+</tr>
+<tr>
+<td align="left">redirect_uri</td>
+<td align="left">必须（如果请求/authorize接口有），完成授权后的回调地址，与注册时一致。</td>
+</tr>
+<tr>
+<td align="left">client_id</td>
+<td align="left">必须，客户端标识。</td>
+</tr>
+<tr>
+<td align="left">client_secret</td>
+<td align="left">必须，客户端密钥。</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;access_token&quot;</span>:<span class="string">&quot;a14afef0f66fcffce3e0fcd2e34f6ff4&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;token_type&quot;</span>:<span class="string">&quot;bearer&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;expires_in&quot;</span>:<span class="number">3920</span>,</span><br><span class="line">  <span class="attr">&quot;refresh_token&quot;</span>:<span class="string">&quot;5d633d136b6d56a41829b73a424803ec&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">access_token</td>
+<td align="left">这个就是最终获取到的令牌。</td>
+</tr>
+<tr>
+<td align="left">token_type</td>
+<td align="left">令牌类型，常见有 bearer/mac/token（可自定义）。</td>
+</tr>
+<tr>
+<td align="left">expires_in</td>
+<td align="left">失效时间。</td>
+</tr>
+<tr>
+<td align="left">refresh_token</td>
+<td align="left">刷新令牌，用来刷新 access_token。</td>
+</tr>
+</tbody></table>
+<p>3、获取资源服务器资源，拿着 access_token 就可以获取账号的相关信息了：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Authorization: token a14afef0f66fcffce3e0fcd2e34f6ff4&quot;</span> https://api.github.com/user</span><br></pre></td></tr></table></figure>
+
+<p>4、<code>POST 请求</code> 刷新令牌</p>
+<p>我们的 access_token 是有时效性的，当在获取 github 用户信息时，如果返回 token 过期：(grant_type就为<code>refresh_token</code>)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/login/oauth/access_token?</span><br><span class="line">  client_id=a5ce5a6c7e8c39567ca0&amp;</span><br><span class="line">  client_secret=xxxx&amp;</span><br><span class="line">  redirect_uri=https://coding.net/api/oauth/github/callback&amp;</span><br><span class="line">  grant_type=refresh_token&amp;</span><br><span class="line">  refresh_token=5d633d136b6d56a41829b73a424803ec</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">redirect_uri</td>
+<td align="left">必须</td>
+</tr>
+<tr>
+<td align="left">grant_type</td>
+<td align="left">必须，固定为 refresh_token</td>
+</tr>
+<tr>
+<td align="left">refresh_token</td>
+<td align="left">必须，上面获取到的 refresh_token</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;access_token&quot;</span>:<span class="string">&quot;a14afef0f66fcffce3e0fcd2e34f6ee4&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;token_type&quot;</span>:<span class="string">&quot;bearer&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;expires_in&quot;</span>:<span class="number">3920</span>,</span><br><span class="line">  <span class="attr">&quot;refresh_token&quot;</span>:<span class="string">&quot;4a633d136b6d56a41829b73a424803vd&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>refresh_token 只有在 access_token 过期时才能使用，并且只能使用一次。当换取到的 access_token 再次过期时，使用新的 refresh_token 来换取 access_token</p>
+</blockquote>
+<h2 id="隐藏式"><a href="#隐藏式" class="headerlink" title="隐藏式"></a>隐藏式</h2><p>有些 Web 应用是纯前端应用，没有后端。这时就不能用上面的方式了，必须将令牌储存在前端。<strong>RFC 6749 就规定了第二种方式，允许直接向前端颁发令牌。这种方式没有授权码这个中间步骤，所以称为（授权码）”隐藏式”（implicit）。</strong></p>
+<p>该方式一般用于移动客户端或网页客户端。隐式授权类似于授权码授权，但 token 被返回给用户代理再转发到客户端（APP），因此它可能会暴露给用户和用户设备上的其它客户端（APP）。此外，此流程不会对客户端（APP）的身份进行身份验证，并且依赖重定向 URI（已在服务商中注册）来实现此目的。</p>
+<p><img src= "https://gitee.com/kylincw/images/raw/master/loading.gif" data-lazy-src="https://www.wangbase.com/blogimg/asset/201904/bg2019040906.jpg" alt="img"></p>
+<p>基本原理：要求用户授权应用程序，然后授权服务器将访问令牌传回给用户代理，用户代理将其传递给客户端。</p>
+<p>1、同样以 coding 和 github 为例（response_type必须为<code>token</code>）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/login/oauth/authorize?</span><br><span class="line">  response_type=token&amp;</span><br><span class="line">  client_id=a5ce5a6c7e8c39567ca0&amp;</span><br><span class="line">  redirect_uri=https://coding.net/api/oauth/github/callback&amp;</span><br><span class="line">  scope=user:email</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">response_type</td>
+<td align="left">必须，固定为 token。</td>
+</tr>
+<tr>
+<td align="left">client_id</td>
+<td align="left">必须。当客户端被注册时，有授权服务器分配的客户端标识。</td>
+</tr>
+<tr>
+<td align="left">redirect_uri</td>
+<td align="left">可选。由客户端注册的重定向URI。</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">可选。请求可能的作用域。</td>
+</tr>
+<tr>
+<td align="left">state</td>
+<td align="left">可选(推荐)。任何需要被传递到客户端请求的URI客户端的状态。</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">https://coding.net/api/oauth/github/callback#</span><br><span class="line">  access_token=a14afef0f66fcffce3e0fcd2e34f6ff4&amp;</span><br><span class="line">  token_type=token&amp;</span><br><span class="line">  expires_in=3600</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">access_token</td>
+<td align="left">必须。授权服务器分配的访问令牌。</td>
+</tr>
+<tr>
+<td align="left">token_type</td>
+<td align="left">必须。令牌类型。</td>
+</tr>
+<tr>
+<td align="left">expires_in</td>
+<td align="left">推荐，访问令牌过期的秒数。</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">可选，访问令牌的作用域。</td>
+</tr>
+<tr>
+<td align="left">state</td>
+<td align="left">必须，如果出现在授权请求期间，和请求中的 state 参数一样。</td>
+</tr>
+</tbody></table>
+<p>授权错误和上面一样</p>
+<p>2、用户代理提取令牌 token 并提交给 coding</p>
+<p>3、coding 拿到 token 就可以获取用户信息了</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -H <span class="string">&quot;Authorization: token a14afef0f66fcffce3e0fcd2e34f6ff4&quot;</span> https://api.github.com/user</span><br></pre></td></tr></table></figure>
+
+<p>这种方式把令牌直接传给前端，是很不安全的。因此，只能用于一些安全要求不高的场景，并且令牌的有效期必须非常短，通常就是会话期间（session）有效，浏览器关掉，令牌就失效了。</p>
+<h2 id="资源所有者密码模式"><a href="#资源所有者密码模式" class="headerlink" title="资源所有者密码模式"></a><strong>资源所有者密码模式</strong></h2><p><strong>如果你高度信任某个应用，RFC 6749 也允许用户把用户名和密码，直接告诉该应用。该应用就使用你的密码，申请令牌，这种方式称为”密码式”（password）。</strong></p>
+<p><code>POST 请求</code> 密码凭证流程</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://oauth.example.com/token?grant_type=password&amp;username=USERNAME&amp;password=PASSWORD&amp;client_id=CLIENT_ID</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">grant_type</td>
+<td align="left">必须，固定为 password。</td>
+</tr>
+<tr>
+<td align="left">username</td>
+<td align="left">必须，UTF-8 编码的资源拥有者用户名。</td>
+</tr>
+<tr>
+<td align="left">password</td>
+<td align="left">必须，UTF-8 编码的资源拥有者密码。</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">可选，授权范围。</td>
+</tr>
+</tbody></table>
+<p>返回值：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  <span class="attr">&quot;access_token&quot;</span>  : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;token_type&quot;</span>    : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;expires_in&quot;</span>    : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;refresh_token&quot;</span> : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果授权服务器验证成功，那么将直接返回令牌 token，改客户端已被授权。</p>
+<blockquote>
+<p>这种方式需要用户给出自己的用户名/密码，显然风险很大，因此只适用于其他授权方式都无法采用的情况，而且必须是用户高度信任的应用。</p>
+</blockquote>
+<h2 id="客户端证书"><a href="#客户端证书" class="headerlink" title="客户端证书"></a>客户端证书</h2><p>这种模式只需要提供 <code>client_id</code> 和 <code>client_secret</code> 即可获取授权。一般用于后端 API 的相关操作。</p>
+<p><code>POST 请求</code> 客户端凭证流程：</p>
+<p><code>https://oauth.example.com/token?grant_type=client_credentials&amp;client_id=CLIENT_ID&amp;client_secret=CLIENT_SECRET</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">字段</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">grant_type</td>
+<td align="left">必须。必须设置到客户端证书中。</td>
+</tr>
+<tr>
+<td align="left">scope</td>
+<td align="left">可选。授权的作用域。</td>
+</tr>
+</tbody></table>
+<p>返回值</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123; </span><br><span class="line">  <span class="attr">&quot;access_token&quot;</span>  : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;token_type&quot;</span>    : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;expires_in&quot;</span>    : <span class="string">&quot;...&quot;</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>如果授权服务器验证成功，那么将直接返回令牌 token，该客户端已被授权。</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kylin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.codekylin.cn/263.html">https://www.codekylin.cn/263.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.codekylin.cn" target="_blank">Kylin</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/OAuth/">OAuth</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/kylincw/images/raw/master/img/20200418114719.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181442.jpg" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" target="_blank"><img class="post-qr-code-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181505.jpg" alt="支付寶"/></a><div class="post-qr-code-desc">支付寶</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/64258.html"><img class="next-cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">什么是OAuth2.0?</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts-list"><div><a href="/64258.html" title="什么是OAuth2.0?"><img class="cover" data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-03-04</div><div class="title">什么是OAuth2.0?</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200807181526.jpg" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/gh/kylincw/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Kylin</div><div class="author-info__description">学习不易，努力努力~</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">361</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">427</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">101</div></a></div></div><a class="button--animated" id="card-info-btn"><i class="fas fa-bookmark"></i><span>加入书签</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/kylincw" target="_blank" title="Github"><i class="iconfont icon-github"></i></a><a class="social-icon" href="tencent://message/?Menu=yes&amp;uin=171346168&amp;Service=300&amp;sigT=45a1e5847943b64c6ff3990f8a9e644d2b31356cb0b4ac6b24663a3c8dd0f8aa12a595b1714f9d45" target="_blank" title="qq"><i class="iconfont icon-qq"></i></a><a class="social-icon" href="https://space.bilibili.com/53836035" target="_blank" title="BiliBili"><i class="iconfont icon-bilibili-line"></i></a><a class="social-icon" href="mailto:zhang171346168@qq.com" target="_blank" title="Email"><i class="iconfont icon-email1"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="iconfont icon-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">学习不易，努力努力！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%88%E6%9D%83%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">授权码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%90%E8%97%8F%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">隐藏式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%84%E6%BA%90%E6%89%80%E6%9C%89%E8%80%85%E5%AF%86%E7%A0%81%E6%A8%A1%E5%BC%8F"><span class="toc-number">4.</span> <span class="toc-text">资源所有者密码模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%81%E4%B9%A6"><span class="toc-number">5.</span> <span class="toc-text">客户端证书</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/263.html" title="OAuth2.0的四种授权"><img data-lazy-src="https://gitee.com/kylincw/images/raw/master/img/20200418114719.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OAuth2.0的四种授权"/></a><div class="content"><a class="title" href="/263.html" title="OAuth2.0的四种授权">OAuth2.0的四种授权</a><time datetime="2022-03-04T11:00:00.568Z" title="更新于 2022-03-04 19:00:00">2022-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/64258.html" title="什么是OAuth2.0?"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/images/20200718200129.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="什么是OAuth2.0?"/></a><div class="content"><a class="title" href="/64258.html" title="什么是OAuth2.0?">什么是OAuth2.0?</a><time datetime="2022-03-04T10:56:00.268Z" title="更新于 2022-03-04 18:56:00">2022-03-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/41745.html" title="Transactional注解的6种失效场景"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-yjy95k.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Transactional注解的6种失效场景"/></a><div class="content"><a class="title" href="/41745.html" title="Transactional注解的6种失效场景">Transactional注解的6种失效场景</a><time datetime="2022-03-02T14:10:30.701Z" title="更新于 2022-03-02 22:10:30">2022-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/10464.html" title="Jenkins安装和插件使用"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-nzj88g.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jenkins安装和插件使用"/></a><div class="content"><a class="title" href="/10464.html" title="Jenkins安装和插件使用">Jenkins安装和插件使用</a><time datetime="2022-03-02T11:26:29.095Z" title="更新于 2022-03-02 19:26:29">2022-03-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/34480.html" title="Jenkins自动部署环境准备"><img data-lazy-src="https://cdn.jsdelivr.net/gh/kylincw/img/img/wallhaven-j5j6r5.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Jenkins自动部署环境准备"/></a><div class="content"><a class="title" href="/34480.html" title="Jenkins自动部署环境准备">Jenkins自动部署环境准备</a><time datetime="2022-03-01T12:13:26.728Z" title="更新于 2022-03-01 20:13:26">2022-03-01</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://gitee.com/kylincw/images/raw/master/img/20200418114719.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2019 - 2022 By Kylin</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font-plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font-minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'ClIyIUhj1ue2rcRTsApYCR50-gzGzoHsz',
+      appKey: 'ATug9IScYQBHILhKWEqBHYxM',
+      placeholder: '昵称填入QQ号能获取到QQ头像哦~请输入正确的邮箱地址，你将会快速收到我的回复并且通过邮件通知你！~',
+      avatar: 'robohash',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'zh-cn',
+      recordIP: false,
+      serverURLs: 'https://cliyiuhj.lc-cn-n1-shared.com',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: true,
+      path: window.location.pathname,
+      requiredFields: ["nick,mail"],
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !true) {
+  if (true) btf.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>
