@@ -8,8 +8,36 @@
     </url>
 
     <url>
+        <loc>https://www.codekylin.cn/categories/SpringBoot/Web%25E5%25BC%2580%25E5%258F%2591/</loc>
+        <lastmod>2022-04-21T08:27:04.626Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/SpringBoot/</loc>
+        <lastmod>2022-04-21T08:27:04.626Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.codekylin.cn/categories/OAuth/</loc>
-        <lastmod>2022-03-06T12:35:48.673Z</lastmod>
+        <lastmod>2022-03-26T13:36:45.135Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/MySQL/</loc>
+        <lastmod>2022-03-14T02:15:04.960Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/</loc>
+        <lastmod>2022-03-14T02:15:04.960Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -92,13 +120,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/SpringBoot/</loc>
-        <lastmod>2021-06-23T13:57:16.727Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/categories/%25E6%25B6%2588%25E6%2581%25AF%25E9%2598%259F%25E5%2588%2597/RabbitMQ/</loc>
         <lastmod>2021-06-18T08:32:37.433Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -164,20 +185,6 @@
     <url>
         <loc>https://www.codekylin.cn/categories/SSM/Spring/</loc>
         <lastmod>2021-03-31T09:07:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/MySQL/</loc>
-        <lastmod>2021-03-29T07:12:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/</loc>
-        <lastmod>2021-03-29T07:12:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -584,13 +591,6 @@
     <url>
         <loc>https://www.codekylin.cn/categories/Vue/Vuex/</loc>
         <lastmod>2020-07-03T03:53:32.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/SpringBoot/Web%25E5%25BC%2580%25E5%258F%2591/</loc>
-        <lastmod>2020-06-20T05:18:07.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
