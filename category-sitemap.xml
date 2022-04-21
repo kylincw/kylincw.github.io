@@ -8,8 +8,43 @@
     </url>
 
     <url>
+        <loc>https://www.codekylin.cn/categories/Redis/</loc>
+        <lastmod>2022-04-21T10:11:14.769Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Java/JUC/</loc>
+        <lastmod>2022-04-21T10:10:49.841Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Java/</loc>
+        <lastmod>2022-04-21T10:10:49.841Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.codekylin.cn/categories/Docker/</loc>
-        <lastmod>2022-04-21T10:04:18.581Z</lastmod>
+        <lastmod>2022-04-21T10:09:27.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Docker/CIG/</loc>
+        <lastmod>2022-04-21T10:07:23.837Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/categories/Docker/compose/</loc>
+        <lastmod>2022-04-21T10:06:59.173Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -66,41 +101,6 @@
     <url>
         <loc>https://www.codekylin.cn/categories/vagrant/</loc>
         <lastmod>2022-01-30T02:37:31.052Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/Docker/compose/</loc>
-        <lastmod>2022-01-29T12:05:44.932Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/Docker/CIG/</loc>
-        <lastmod>2022-01-29T12:05:44.925Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/Java/JUC/</loc>
-        <lastmod>2022-01-04T07:52:33.967Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/Java/</loc>
-        <lastmod>2022-01-04T07:52:33.967Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/categories/Redis/</loc>
-        <lastmod>2022-01-04T00:51:44.289Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
