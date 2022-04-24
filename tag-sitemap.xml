@@ -2810,6 +2810,13 @@
     </url>
 
     <url>
+        <loc>https://www.codekylin.cn/tags/%25E7%25BA%25A6%25E6%259D%259F/</loc>
+        <lastmod>2020-04-04T14:10:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://www.codekylin.cn/tags/%25E7%25B4%25A2%25E5%25BC%2595/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -2824,13 +2831,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E7%25BA%25A6%25E6%259D%259F/</loc>
-        <lastmod>2020-04-04T14:10:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/MySQL%25E4%25B8%258EOracle%25E7%259A%2584%25E5%258C%25BA%25E5%2588%25AB/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -2839,6 +2839,13 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E5%258A%25A8%25E6%2580%2581sql/</loc>
+        <lastmod>2020-04-04T14:10:42.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25B8%25B8%25E7%2594%25A8%25E5%25AF%25B9%25E8%25B1%25A1%25E5%2592%258C%25E6%2596%25B9%25E6%25B3%2595/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -2860,13 +2867,6 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E8%25BD%25AC%25E6%258D%25A2/</loc>
-        <lastmod>2020-04-04T14:10:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25B8%25B8%25E7%2594%25A8%25E5%25AF%25B9%25E8%25B1%25A1%25E5%2592%258C%25E6%2596%25B9%25E6%25B3%2595/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -2901,14 +2901,14 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E4%25BA%258B%25E5%258A%25A1%25E7%25AE%25A1%25E7%2590%2586/</loc>
+        <loc>https://www.codekylin.cn/tags/%25E5%25A2%259E%25E5%2588%25A0%25E6%2594%25B9/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25A2%259E%25E5%2588%25A0%25E6%2594%25B9/</loc>
+        <loc>https://www.codekylin.cn/tags/%25E4%25BA%258B%25E5%258A%25A1%25E7%25AE%25A1%25E7%2590%2586/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
