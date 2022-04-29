@@ -3,29 +3,1107 @@
 
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Jedis/</loc>
-        <lastmod>2022-04-29T03:54:25.443Z</lastmod>
+        <loc>https://www.codekylin.cn/tags/%25E9%259D%2599%25E6%2580%2581%25E8%25B5%2584%25E6%25BA%2590%25E6%2598%25A0%25E5%25B0%2584%25E8%25A7%2584%25E5%2588%2599/</loc>
+        <lastmod>2022-04-29T05:55:39.975Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Redis/</loc>
-        <lastmod>2022-04-29T03:54:25.443Z</lastmod>
+        <loc>https://www.codekylin.cn/tags/Web%25E5%25BC%2580%25E5%258F%2591/</loc>
+        <lastmod>2022-04-29T05:55:39.975Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.codekylin.cn/tags/SpringBoot/</loc>
-        <lastmod>2022-04-29T03:54:16.433Z</lastmod>
+        <lastmod>2022-04-29T05:55:39.975Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%2587%25AA%25E5%258A%25A8%25E9%2585%258D%25E7%25BD%25AE%25E5%258E%259F%25E7%2590%2586/</loc>
+        <lastmod>2022-04-29T05:55:29.414Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%258D%25B8%25E8%25BD%25BD/</loc>
+        <lastmod>2022-04-29T05:55:16.101Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25AE%2589%25E8%25A3%2585/</loc>
+        <lastmod>2022-04-29T05:55:16.101Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Docker/</loc>
+        <lastmod>2022-04-29T05:55:16.101Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Spring/</loc>
+        <lastmod>2022-04-29T05:54:50.168Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JavaConfig/</loc>
+        <lastmod>2022-04-29T05:54:50.168Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2585%258D%25E7%25BD%25AEDruid%25E6%2595%25B0%25E6%258D%25AE%25E6%25BA%2590%25E7%259B%2591%25E6%258E%25A7/</loc>
+        <lastmod>2022-04-29T05:51:59.057Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2585%258D%25E7%25BD%25AEDruid%25E6%2595%25B0%25E6%258D%25AE%25E6%25BA%2590/</loc>
+        <lastmod>2022-04-29T05:51:59.057Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Druid/</loc>
+        <lastmod>2022-04-29T05:51:59.057Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/MVVM/</loc>
+        <lastmod>2022-04-29T05:51:38.279Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/v-model/</loc>
+        <lastmod>2022-04-29T05:51:38.279Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%258F%258C%25E5%2590%2591%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2591%25E5%25AE%259A/</loc>
+        <lastmod>2022-04-29T05:51:38.279Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Vue/</loc>
+        <lastmod>2022-04-29T05:51:38.279Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/v-once/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E5%2593%258D%25E5%25BA%2594%25E5%25BC%258F/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/v-pre/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/v-html/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/v-text/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2591%25E5%25AE%259A%25E6%258C%2587%25E4%25BB%25A4/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/v-cloak/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%258C%2587%25E4%25BB%25A4/</loc>
+        <lastmod>2022-04-29T05:51:29.594Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25B2%25E6%259F%2593%25E6%2596%25B9%25E5%25BC%258F/</loc>
+        <lastmod>2022-04-29T05:51:18.940Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25B2%25E6%259F%2593/</loc>
+        <lastmod>2022-04-29T05:51:18.940Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Vue%25E6%25A6%2582%25E8%25BF%25B0/</loc>
+        <lastmod>2022-04-29T05:51:06.824Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E9%2585%258D%25E7%25BD%25AE%25E6%2596%2587%25E4%25BB%25B6/</loc>
-        <lastmod>2022-04-29T03:54:03.427Z</lastmod>
+        <lastmod>2022-04-29T05:50:21.530Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/SpringBootApplication%25E6%25B3%25A8%25E8%25A7%25A3/</loc>
+        <lastmod>2022-04-29T05:50:04.395Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/HelloWorld/</loc>
+        <lastmod>2022-04-29T05:50:04.395Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/STS/</loc>
+        <lastmod>2022-04-29T05:49:54.855Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Spring-Initializer/</loc>
+        <lastmod>2022-04-29T05:49:54.855Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2585%25A5%25E9%2597%25A8/</loc>
+        <lastmod>2022-04-29T05:49:45.487Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Junit/</loc>
+        <lastmod>2022-04-29T05:49:31.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2594%2599%25E8%25AF%25AF%25E9%2597%25AE%25E9%25A2%2598%25E8%25AE%25B0%25E5%25BD%2595/</loc>
+        <lastmod>2022-04-29T05:49:31.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Tomcat/</loc>
+        <lastmod>2022-04-29T05:49:31.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Oracle/</loc>
+        <lastmod>2022-04-29T05:49:31.470Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25BC%2582%25E5%25B8%25B8%25E5%25A4%2584%25E7%2590%2586/</loc>
+        <lastmod>2022-04-29T05:49:08.693Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/SpringMVC/</loc>
+        <lastmod>2022-04-29T05:49:08.693Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%2587%25AA%25E5%25AE%259A%25E4%25B9%2589%25E6%258B%25A6%25E6%2588%25AA%25E6%25A0%2588/</loc>
+        <lastmod>2022-04-29T05:48:57.840Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%258B%25A6%25E6%2588%25AA%25E6%25A0%2588/</loc>
+        <lastmod>2022-04-29T05:48:57.840Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%2587%25AA%25E5%25AE%259A%25E4%25B9%2589%25E6%258B%25A6%25E6%2588%25AA%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:48:57.840Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%258B%25A6%25E6%2588%25AA%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:48:57.840Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/MultipartResovler%25E8%25A7%25A3%25E6%259E%2590%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:48:46.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25BC%2582%25E5%25B8%25B8%25E8%25A7%25A3%25E6%259E%2590%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:48:46.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%258B%25E8%25BD%25BD/</loc>
+        <lastmod>2022-04-29T05:48:46.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%258A%25E4%25BC%25A0/</loc>
+        <lastmod>2022-04-29T05:48:46.106Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25A7%2586%25E5%259B%25BE%25E8%25A7%25A3%25E6%259E%2590%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:48:36.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25AD%2597%25E7%25AC%25A6%25E7%25BC%2596%25E7%25A0%2581%25E8%25BF%2587%25E6%25BB%25A4%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:48:36.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/SpringMVC%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA/</loc>
+        <lastmod>2022-04-29T05:48:36.195Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Java/</loc>
+        <lastmod>2022-04-29T05:48:27.453Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JavaWeb/</loc>
+        <lastmod>2022-04-29T05:48:18.274Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25AD%2597%25E7%25AC%25A6%25E7%25BC%2596%25E7%25A0%2581/</loc>
+        <lastmod>2022-04-29T05:48:09.318Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/IO%25E6%25B5%2581/</loc>
+        <lastmod>2022-04-29T05:48:09.318Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/FileOutputStream/</loc>
+        <lastmod>2022-04-29T05:48:00.386Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/FileInputStream/</loc>
+        <lastmod>2022-04-29T05:48:00.386Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Io%25E6%25B5%2581/</loc>
+        <lastmod>2022-04-29T05:48:00.386Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%25B5%2581%25E7%259A%2584%25E5%2588%2586%25E7%25B1%25BB/</loc>
+        <lastmod>2022-04-29T05:47:50.835Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/io/</loc>
+        <lastmod>2022-04-29T05:47:50.835Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/java/</loc>
+        <lastmod>2022-04-29T05:47:50.835Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/File%25E7%25B1%25BB%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E6%2596%25B9%25E6%25B3%2595/</loc>
+        <lastmod>2022-04-29T05:47:41.555Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25B7%25AF%25E5%25BE%2584%25E5%2588%2586%25E9%259A%2594%25E7%25AC%25A6/</loc>
+        <lastmod>2022-04-29T05:47:41.555Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/File%25E7%25B1%25BB/</loc>
+        <lastmod>2022-04-29T05:47:41.555Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%25A6%2582%25E5%25BF%25B5/</loc>
+        <lastmod>2022-04-29T05:47:31.709Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/spring/</loc>
+        <lastmod>2022-04-29T05:47:31.709Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25BF%2590%25E8%25A1%258C%25E5%258E%259F%25E7%2590%2586/</loc>
+        <lastmod>2022-04-29T05:47:19.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/mybatis/</loc>
+        <lastmod>2022-04-29T05:47:19.663Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%25B3%25A8%25E8%25A7%25A3/</loc>
+        <lastmod>2022-04-29T05:47:09.557Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E7%25BC%2593%25E5%25AD%2598/</loc>
+        <lastmod>2022-04-29T05:46:56.579Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/opensessioninview/</loc>
+        <lastmod>2022-04-29T05:46:47.397Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/threadlocal/</loc>
+        <lastmod>2022-04-29T05:46:47.397Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2587%258D%25E7%2582%25B9/</loc>
+        <lastmod>2022-04-29T05:46:34.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%258E%25A5%25E5%258F%25A3%25E7%25BB%2591%25E5%25AE%259A/</loc>
+        <lastmod>2022-04-29T05:46:34.684Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2588%25A0%25E9%2599%25A4/</loc>
+        <lastmod>2022-04-29T05:46:24.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E4%25BF%25AE%25E6%2594%25B9/</loc>
+        <lastmod>2022-04-29T05:46:24.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2596%25B0%25E5%25A2%259E/</loc>
+        <lastmod>2022-04-29T05:46:24.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E4%25BA%258B%25E5%258A%25A1/</loc>
+        <lastmod>2022-04-29T05:46:24.782Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2588%2586%25E9%25A1%25B5%25E6%259F%25A5%25E8%25AF%25A2/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2588%25AB%25E5%2590%258D/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/typeAliases/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/parameterType/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/settings%25E6%25A0%2587%25E7%25AD%25BE/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/selectMap/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/selectOne/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/selectList/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E4%25B8%2589%25E7%25A7%258D%25E6%259F%25A5%25E8%25AF%25A2%25E6%2596%25B9%25E5%25BC%258F/</loc>
+        <lastmod>2022-04-29T05:46:14.750Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%259F%25BA%25E6%259C%25AC%25E4%25BD%25BF%25E7%2594%25A8/</loc>
+        <lastmod>2022-04-29T05:46:05.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E7%258E%25AF%25E5%25A2%2583%25E4%25BB%25A3%25E5%25BB%25BA/</loc>
+        <lastmod>2022-04-29T05:46:05.444Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%2591%25BD%25E5%2590%258D%25E8%25A7%2584%25E8%258C%2583/</loc>
+        <lastmod>2022-04-29T05:45:41.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/mvc%25E5%25BC%2580%25E5%258F%2591%25E6%25A8%25A1%25E5%25BC%258F/</loc>
+        <lastmod>2022-04-29T05:45:41.369Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Jstl%25E6%25A0%2587%25E7%25AD%25BE%25E5%25BA%2593/</loc>
+        <lastmod>2022-04-29T05:45:23.731Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/El%25E8%25A1%25A8%25E8%25BE%25BE%25E5%25BC%258F/</loc>
+        <lastmod>2022-04-29T05:45:11.198Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/ajax/</loc>
+        <lastmod>2022-04-29T05:44:59.834Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JSP/</loc>
+        <lastmod>2022-04-29T05:44:48.551Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%259F%25BA%25E7%25A1%2580/</loc>
+        <lastmod>2022-04-29T05:44:48.551Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/server-xml/</loc>
+        <lastmod>2022-04-29T05:44:35.645Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/web-xml/</loc>
+        <lastmod>2022-04-29T05:44:35.645Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Servlet%25E7%259A%2584%25E6%2596%25B9%25E6%25B3%2595/</loc>
+        <lastmod>2022-04-29T05:43:51.129Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/load-on-startup%25E7%259A%2584%25E4%25BD%259C%25E7%2594%25A8/</loc>
+        <lastmod>2022-04-29T05:43:51.129Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Servlet%25E7%259A%2584%25E7%2594%259F%25E5%2591%25BD%25E5%2591%25A8%25E6%259C%259F/</loc>
+        <lastmod>2022-04-29T05:43:51.129Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/servlet/</loc>
+        <lastmod>2022-04-29T05:43:51.129Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/servlet%25E9%2585%258D%25E7%25BD%25AE/</loc>
+        <lastmod>2022-04-29T05:43:36.966Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/tomcat%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:43:25.986Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/request/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/repose/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/uri/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/url/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/post%25E8%25AF%25B7%25E6%25B1%2582/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/get%25E8%25AF%25B7%25E6%25B1%2582/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/http%25E5%258D%258F%25E8%25AE%25AE/</loc>
+        <lastmod>2022-04-29T05:43:14.163Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/EasyUI/</loc>
+        <lastmod>2022-04-29T05:42:47.016Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%25A1%2588%25E4%25BE%258B/</loc>
+        <lastmod>2022-04-29T05:41:39.413Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25A1%25A8%25E5%258D%2595%25E6%25A0%25A1%25E9%25AA%258C/</loc>
+        <lastmod>2022-04-29T05:41:39.413Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JavaScript/</loc>
+        <lastmod>2022-04-29T05:41:39.413Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2580%2589%25E6%258B%25A9%25E7%25BB%2593%25E6%259E%2584/</loc>
+        <lastmod>2022-04-29T05:40:36.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25BE%25AA%25E7%258E%25AF%25E7%25BB%2593%25E6%259E%2584/</loc>
+        <lastmod>2022-04-29T05:40:36.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2580%25BB%25E8%25BE%2591%25E7%25BB%2593%25E6%259E%2584/</loc>
+        <lastmod>2022-04-29T05:40:36.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JS-%25E5%2592%258C-%25E7%259A%2584%25E5%258C%25BA%25E5%2588%25AB/</loc>
+        <lastmod>2022-04-29T05:40:36.729Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/js%25E5%25A3%25B0%25E6%2598%258E/</loc>
+        <lastmod>2022-04-29T05:40:25.613Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E4%25BC%25AA%25E7%25B1%25BB/</loc>
+        <lastmod>2022-04-29T05:40:16.197Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%25A0%25B7%25E5%25BC%258F%25E4%25BD%25BF%25E7%2594%25A8/</loc>
+        <lastmod>2022-04-29T05:40:16.197Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/css/</loc>
+        <lastmod>2022-04-29T05:40:16.197Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25A1%25A8%25E5%258D%2595%25E6%25A0%2587%25E7%25AD%25BE/</loc>
+        <lastmod>2022-04-29T05:39:56.556Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/HTML/</loc>
+        <lastmod>2022-04-29T05:39:56.556Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25A1%25A8%25E6%25A0%25BC%25E6%25A0%2587%25E7%25AD%25BE/</loc>
+        <lastmod>2022-04-29T05:39:30.636Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E8%25B7%25AF%25E5%25BE%2584%25E9%2597%25AE%25E9%25A2%2598/</loc>
+        <lastmod>2022-04-29T05:39:18.236Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E7%25BB%259D%25E5%25AF%25B9%25E8%25B7%25AF%25E5%25BE%2584/</loc>
+        <lastmod>2022-04-29T05:39:18.236Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E7%259B%25B8%25E5%25AF%25B9%25E8%25B7%25AF%25E5%25BE%2584/</loc>
+        <lastmod>2022-04-29T05:39:18.236Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/meta%25E6%25A0%2587%25E7%25AD%25BE/</loc>
+        <lastmod>2022-04-29T05:38:59.844Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/title%25E6%25A0%2587%25E7%25AD%25BE/</loc>
+        <lastmod>2022-04-29T05:38:59.844Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/head%25E6%25A0%2587%25E7%25AD%25BE/</loc>
+        <lastmod>2022-04-29T05:38:59.844Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591/</loc>
+        <lastmod>2022-04-29T05:38:59.844Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/html/</loc>
+        <lastmod>2022-04-29T05:38:59.844Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2597%25A5%25E5%25BF%2597%25E7%25AE%25A1%25E7%2590%2586/</loc>
+        <lastmod>2022-04-29T05:38:51.113Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2597%25A5%25E5%25BF%2597/</loc>
+        <lastmod>2022-04-29T05:38:51.113Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/oracle/</loc>
+        <lastmod>2022-04-29T05:38:28.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/</loc>
+        <lastmod>2022-04-29T05:38:28.074Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/idea/</loc>
+        <lastmod>2022-04-29T05:38:15.810Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/tomcat/</loc>
+        <lastmod>2022-04-29T05:38:15.810Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/docker/</loc>
+        <lastmod>2022-04-29T05:38:15.810Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Swagger/</loc>
+        <lastmod>2022-04-29T05:38:05.089Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/core%25E8%25A1%25A8%25E8%25BE%25BE%25E5%25BC%258F/</loc>
+        <lastmod>2022-04-29T05:37:53.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E9%2582%25AE%25E4%25BB%25B6%25E4%25BB%25BB%25E5%258A%25A1/</loc>
+        <lastmod>2022-04-29T05:37:53.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25AE%259A%25E6%2597%25B6%25E4%25BB%25BB%25E5%258A%25A1/</loc>
+        <lastmod>2022-04-29T05:37:53.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E5%25BC%2582%25E6%25AD%25A5%25E4%25BB%25BB%25E5%258A%25A1/</loc>
+        <lastmod>2022-04-29T05:37:53.592Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Dubbo/</loc>
+        <lastmod>2022-04-29T05:37:39.326Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Zookeeper/</loc>
+        <lastmod>2022-04-29T05:37:39.326Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/MyBatisPlus/</loc>
+        <lastmod>2022-04-29T05:37:27.288Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%259D%25A1%25E4%25BB%25B6%25E6%259E%2584%25E9%2580%25A0%25E5%2599%25A8/</loc>
+        <lastmod>2022-04-29T05:37:13.930Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/MybatisPlus/</loc>
+        <lastmod>2022-04-29T05:37:13.930Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/CRUD/</loc>
+        <lastmod>2022-04-29T05:37:05.704Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/redis/</loc>
+        <lastmod>2022-04-29T05:36:50.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Nosql/</loc>
+        <lastmod>2022-04-29T05:36:50.242Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B4%25E5%2590%2588JDBC/</loc>
+        <lastmod>2022-04-29T05:36:39.622Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JDBCTemplate/</loc>
+        <lastmod>2022-04-29T05:36:39.622Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/JDBC/</loc>
+        <lastmod>2022-04-29T05:36:39.622Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Redis/</loc>
+        <lastmod>2022-04-29T05:36:24.480Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://www.codekylin.cn/tags/Jedis/</loc>
+        <lastmod>2022-04-29T03:54:25.443Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -52,21 +1130,7 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Tomcat/</loc>
-        <lastmod>2022-04-29T03:52:13.543Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/%25E4%25BB%25A3%25E7%25A0%2581%25E7%2594%259F%25E6%2588%2590%25E5%2599%25A8/</loc>
-        <lastmod>2022-04-29T03:51:03.382Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/MyBatisPlus/</loc>
         <lastmod>2022-04-29T03:51:03.382Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -94,13 +1158,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Java/</loc>
-        <lastmod>2022-04-29T03:50:23.018Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/FileWriter/</loc>
         <lastmod>2022-04-29T03:50:04.930Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -116,13 +1173,6 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E5%25AD%2597%25E7%25AC%25A6%25E6%25B5%2581/</loc>
-        <lastmod>2022-04-29T03:50:04.930Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/IO%25E6%25B5%2581/</loc>
         <lastmod>2022-04-29T03:50:04.930Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -185,13 +1235,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Io%25E6%25B5%2581/</loc>
-        <lastmod>2022-04-29T03:49:42.663Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/GitHub/</loc>
         <lastmod>2022-04-29T03:48:53.902Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -222,13 +1265,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/UML/</loc>
         <lastmod>2022-04-29T03:48:13.404Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/</loc>
-        <lastmod>2022-04-29T03:48:02.861Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -290,13 +1326,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Vue/</loc>
-        <lastmod>2022-04-29T03:47:26.281Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/v-bind/</loc>
         <lastmod>2022-04-29T03:47:14.590Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -319,13 +1348,6 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E5%25AE%259E%25E7%258E%25B0%25E5%25A4%259A%25E8%25A1%25A8%25E6%259F%25A5%25E8%25AF%25A2/</loc>
-        <lastmod>2022-04-29T03:47:03.961Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/mybatis/</loc>
         <lastmod>2022-04-29T03:47:03.961Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -375,13 +1397,6 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E6%2597%25B6%25E9%2597%25B4%25E6%25A0%25BC%25E5%25BC%258F%25E5%258C%2596/</loc>
-        <lastmod>2022-04-29T03:44:46.147Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Web%25E5%25BC%2580%25E5%258F%2591/</loc>
         <lastmod>2022-04-29T03:44:46.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -619,13 +1634,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%25B3%25A8%25E8%25A7%25A3/</loc>
-        <lastmod>2022-04-29T03:27:35.783Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/JVM/</loc>
         <lastmod>2022-04-29T03:27:20.447Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -655,13 +1663,6 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/%25E5%2587%25BD%25E6%2595%25B0%25E5%25BC%258F%25E6%258E%25A5%25E5%258F%25A3/</loc>
-        <lastmod>2022-04-25T08:13:10.635Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/java/</loc>
         <lastmod>2022-04-25T08:13:10.635Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -719,13 +1720,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/Eureka/</loc>
         <lastmod>2022-04-25T08:06:58.647Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Zookeeper/</loc>
-        <lastmod>2022-04-25T08:06:37.057Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -829,21 +1823,7 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/spring/</loc>
-        <lastmod>2022-04-24T08:07:26.856Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/%25E5%25B8%25B8%25E7%2594%25A8%25E6%25B3%25A8%25E8%25A7%25A3/</loc>
-        <lastmod>2022-04-24T08:07:12.553Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Spring/</loc>
         <lastmod>2022-04-24T08:07:12.553Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1046,20 +2026,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/SpringMVC/</loc>
-        <lastmod>2022-04-24T08:04:48.904Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/SpringMVC%25E7%258E%25AF%25E5%25A2%2583%25E6%2590%25AD%25E5%25BB%25BA/</loc>
-        <lastmod>2022-04-24T08:04:34.865Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/SpringMVC%25E7%25AE%2580%25E4%25BB%258B/</loc>
         <lastmod>2022-04-24T08:04:34.865Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1103,13 +2069,6 @@
 
     <url>
         <loc>https://www.codekylin.cn/tags/Sping/</loc>
-        <lastmod>2022-04-24T08:01:13.184Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E4%25BA%258B%25E5%258A%25A1/</loc>
         <lastmod>2022-04-24T08:01:13.184Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -1172,13 +2131,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Docker/</loc>
-        <lastmod>2022-04-21T10:09:27.613Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/Dockerfile/</loc>
         <lastmod>2022-04-21T10:04:18.581Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1202,13 +2154,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/%25E9%25BB%2598%25E8%25AE%25A4%25E8%25AE%25BF%25E9%2597%25AE%25E9%25A6%2596%25E9%25A1%25B5/</loc>
         <lastmod>2022-04-21T09:56:08.831Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%258B%25A6%25E6%2588%25AA%25E5%2599%25A8/</loc>
-        <lastmod>2022-04-21T09:55:36.543Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -1368,20 +2313,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/Oracle/</loc>
-        <lastmod>2020-11-16T02:26:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%259F%25BA%25E7%25A1%2580/</loc>
-        <lastmod>2020-11-16T02:26:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/%25E5%25BA%258F%25E5%2588%2597%25E5%258C%2596/</loc>
         <lastmod>2020-11-16T01:48:27.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1438,139 +2369,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B4%25E5%2590%2588JDBC/</loc>
-        <lastmod>2020-04-24T02:12:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JDBCTemplate/</loc>
-        <lastmod>2020-04-24T02:12:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JDBC/</loc>
-        <lastmod>2020-04-24T02:12:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/redis/</loc>
-        <lastmod>2020-04-23T12:48:08.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Nosql/</loc>
-        <lastmod>2020-04-23T12:48:08.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/CRUD/</loc>
-        <lastmod>2020-04-21T10:00:55.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%259D%25A1%25E4%25BB%25B6%25E6%259E%2584%25E9%2580%25A0%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-21T09:57:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/MybatisPlus/</loc>
-        <lastmod>2020-04-21T09:57:14.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Dubbo/</loc>
-        <lastmod>2020-04-15T09:13:52.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/core%25E8%25A1%25A8%25E8%25BE%25BE%25E5%25BC%258F/</loc>
-        <lastmod>2020-04-15T02:20:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2582%25AE%25E4%25BB%25B6%25E4%25BB%25BB%25E5%258A%25A1/</loc>
-        <lastmod>2020-04-15T02:20:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25AE%259A%25E6%2597%25B6%25E4%25BB%25BB%25E5%258A%25A1/</loc>
-        <lastmod>2020-04-15T02:20:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25BC%2582%25E6%25AD%25A5%25E4%25BB%25BB%25E5%258A%25A1/</loc>
-        <lastmod>2020-04-15T02:20:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Swagger/</loc>
-        <lastmod>2020-04-12T05:09:08.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/idea/</loc>
-        <lastmod>2020-04-06T09:12:49.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/tomcat/</loc>
-        <lastmod>2020-04-06T09:12:49.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/docker/</loc>
-        <lastmod>2020-04-06T09:12:49.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2594%2599%25E8%25AF%25AF%25E9%2597%25AE%25E9%25A2%2598%25E8%25AE%25B0%25E5%25BD%2595/</loc>
-        <lastmod>2020-04-06T09:12:49.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/oracle/</loc>
-        <lastmod>2020-04-05T04:56:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/JDBC%25E5%25B0%2581%25E8%25A3%2585/</loc>
         <lastmod>2020-04-05T04:51:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1580,55 +2378,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/JAVA/</loc>
         <lastmod>2020-04-05T04:51:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2597%25A5%25E5%25BF%2597%25E7%25AE%25A1%25E7%2590%2586/</loc>
-        <lastmod>2020-04-05T04:49:47.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2597%25A5%25E5%25BF%2597/</loc>
-        <lastmod>2020-04-05T04:49:47.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/meta%25E6%25A0%2587%25E7%25AD%25BE/</loc>
-        <lastmod>2020-04-05T04:49:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/title%25E6%25A0%2587%25E7%25AD%25BE/</loc>
-        <lastmod>2020-04-05T04:49:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/head%25E6%25A0%2587%25E7%25AD%25BE/</loc>
-        <lastmod>2020-04-05T04:49:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E7%25BD%2591%25E9%25A1%25B5%25E5%25BC%2580%25E5%258F%2591/</loc>
-        <lastmod>2020-04-05T04:49:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/html/</loc>
-        <lastmod>2020-04-05T04:49:05.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -1655,113 +2404,8 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/HTML/</loc>
-        <lastmod>2020-04-05T04:45:40.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25B7%25AF%25E5%25BE%2584%25E9%2597%25AE%25E9%25A2%2598/</loc>
-        <lastmod>2020-04-05T04:44:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E7%25BB%259D%25E5%25AF%25B9%25E8%25B7%25AF%25E5%25BE%2584/</loc>
-        <lastmod>2020-04-05T04:44:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E7%259B%25B8%25E5%25AF%25B9%25E8%25B7%25AF%25E5%25BE%2584/</loc>
-        <lastmod>2020-04-05T04:44:54.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25A1%25A8%25E5%258D%2595%25E6%25A0%2587%25E7%25AD%25BE/</loc>
-        <lastmod>2020-04-05T04:42:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25A1%25A8%25E6%25A0%25BC%25E6%25A0%2587%25E7%25AD%25BE/</loc>
-        <lastmod>2020-04-05T04:42:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/%25E5%2586%2585%25E5%25B5%258C%25E6%25A0%2587%25E7%25AD%25BE/</loc>
         <lastmod>2020-04-05T04:40:38.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E4%25BC%25AA%25E7%25B1%25BB/</loc>
-        <lastmod>2020-04-05T04:37:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%25A0%25B7%25E5%25BC%258F%25E4%25BD%25BF%25E7%2594%25A8/</loc>
-        <lastmod>2020-04-05T04:37:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/css/</loc>
-        <lastmod>2020-04-05T04:37:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/js%25E5%25A3%25B0%25E6%2598%258E/</loc>
-        <lastmod>2020-04-05T04:36:18.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JavaScript/</loc>
-        <lastmod>2020-04-05T04:36:18.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2580%2589%25E6%258B%25A9%25E7%25BB%2593%25E6%259E%2584/</loc>
-        <lastmod>2020-04-05T04:35:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25BE%25AA%25E7%258E%25AF%25E7%25BB%2593%25E6%259E%2584/</loc>
-        <lastmod>2020-04-05T04:35:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2580%25BB%25E8%25BE%2591%25E7%25BB%2593%25E6%259E%2584/</loc>
-        <lastmod>2020-04-05T04:35:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JS-%25E5%2592%258C-%25E7%259A%2584%25E5%258C%25BA%25E5%2588%25AB/</loc>
-        <lastmod>2020-04-05T04:35:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -1865,20 +2509,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%25A1%2588%25E4%25BE%258B/</loc>
-        <lastmod>2020-04-05T04:30:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25A1%25A8%25E5%258D%2595%25E6%25A0%25A1%25E9%25AA%258C/</loc>
-        <lastmod>2020-04-05T04:30:10.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/event%25E5%25AF%25B9%25E8%25B1%25A1/</loc>
         <lastmod>2020-04-05T04:28:30.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -1951,104 +2581,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/JQuery%25E6%2593%258D%25E4%25BD%259C%25E5%25A4%259A%25E9%2580%2589%25E6%25A1%2586/</loc>
         <lastmod>2020-04-05T04:23:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/EasyUI/</loc>
-        <lastmod>2020-04-05T04:22:21.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/request/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/repose/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/uri/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/url/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/post%25E8%25AF%25B7%25E6%25B1%2582/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/get%25E8%25AF%25B7%25E6%25B1%2582/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/http%25E5%258D%258F%25E8%25AE%25AE/</loc>
-        <lastmod>2020-04-05T04:19:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/tomcat%25E6%259C%258D%25E5%258A%25A1%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-05T04:10:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/servlet%25E9%2585%258D%25E7%25BD%25AE/</loc>
-        <lastmod>2020-04-05T04:09:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/servlet/</loc>
-        <lastmod>2020-04-05T04:09:12.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Servlet%25E7%259A%2584%25E6%2596%25B9%25E6%25B3%2595/</loc>
-        <lastmod>2020-04-05T04:08:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/load-on-startup%25E7%259A%2584%25E4%25BD%259C%25E7%2594%25A8/</loc>
-        <lastmod>2020-04-05T04:08:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Servlet%25E7%259A%2584%25E7%2594%259F%25E5%2591%25BD%25E5%2591%25A8%25E6%259C%259F/</loc>
-        <lastmod>2020-04-05T04:08:36.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -2138,48 +2670,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/server-xml/</loc>
-        <lastmod>2020-04-05T04:03:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/web-xml/</loc>
-        <lastmod>2020-04-05T04:03:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JSP/</loc>
-        <lastmod>2020-04-05T04:01:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/ajax/</loc>
-        <lastmod>2020-04-05T03:59:17.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/El%25E8%25A1%25A8%25E8%25BE%25BE%25E5%25BC%258F/</loc>
-        <lastmod>2020-04-05T03:58:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Jstl%25E6%25A0%2587%25E7%25AD%25BE%25E5%25BA%2593/</loc>
-        <lastmod>2020-04-05T03:57:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/%25E7%259B%2591%25E5%2590%25AC%25E5%2599%25A8/</loc>
         <lastmod>2020-04-05T03:55:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -2194,153 +2684,6 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2591%25BD%25E5%2590%258D%25E8%25A7%2584%25E8%258C%2583/</loc>
-        <lastmod>2020-04-05T03:55:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/mvc%25E5%25BC%2580%25E5%258F%2591%25E6%25A8%25A1%25E5%25BC%258F/</loc>
-        <lastmod>2020-04-05T03:55:05.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%259F%25BA%25E6%259C%25AC%25E4%25BD%25BF%25E7%2594%25A8/</loc>
-        <lastmod>2020-04-05T03:54:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E7%258E%25AF%25E5%25A2%2583%25E4%25BB%25A3%25E5%25BB%25BA/</loc>
-        <lastmod>2020-04-05T03:54:09.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2588%2586%25E9%25A1%25B5%25E6%259F%25A5%25E8%25AF%25A2/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2588%25AB%25E5%2590%258D/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/typeAliases/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/parameterType/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/settings%25E6%25A0%2587%25E7%25AD%25BE/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/selectMap/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/selectOne/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/selectList/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E4%25B8%2589%25E7%25A7%258D%25E6%259F%25A5%25E8%25AF%25A2%25E6%2596%25B9%25E5%25BC%258F/</loc>
-        <lastmod>2020-04-05T03:52:11.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2588%25A0%25E9%2599%25A4/</loc>
-        <lastmod>2020-04-05T03:50:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E4%25BF%25AE%25E6%2594%25B9/</loc>
-        <lastmod>2020-04-05T03:50:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2596%25B0%25E5%25A2%259E/</loc>
-        <lastmod>2020-04-05T03:50:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2587%258D%25E7%2582%25B9/</loc>
-        <lastmod>2020-04-05T03:49:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%258E%25A5%25E5%258F%25A3%25E7%25BB%2591%25E5%25AE%259A/</loc>
-        <lastmod>2020-04-05T03:49:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/opensessioninview/</loc>
-        <lastmod>2020-04-05T03:44:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/threadlocal/</loc>
-        <lastmod>2020-04-05T03:44:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E7%25BC%2593%25E5%25AD%2598/</loc>
-        <lastmod>2020-04-05T03:43:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://www.codekylin.cn/tags/%25E5%258D%2595%25E8%25AF%258D/</loc>
         <lastmod>2020-04-05T03:40:49.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -2350,195 +2693,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/%25E8%258B%25B1%25E8%25AF%25AD/</loc>
         <lastmod>2020-04-05T03:40:49.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25BF%2590%25E8%25A1%258C%25E5%258E%259F%25E7%2590%2586/</loc>
-        <lastmod>2020-04-05T03:21:37.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%25A6%2582%25E5%25BF%25B5/</loc>
-        <lastmod>2020-04-05T03:20:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/File%25E7%25B1%25BB%25E7%259A%2584%25E5%25B8%25B8%25E7%2594%25A8%25E6%2596%25B9%25E6%25B3%2595/</loc>
-        <lastmod>2020-04-05T03:08:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25B7%25AF%25E5%25BE%2584%25E5%2588%2586%25E9%259A%2594%25E7%25AC%25A6/</loc>
-        <lastmod>2020-04-05T03:08:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/File%25E7%25B1%25BB/</loc>
-        <lastmod>2020-04-05T03:08:34.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%25B5%2581%25E7%259A%2584%25E5%2588%2586%25E7%25B1%25BB/</loc>
-        <lastmod>2020-04-05T03:06:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/io/</loc>
-        <lastmod>2020-04-05T03:06:43.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/FileOutputStream/</loc>
-        <lastmod>2020-04-05T03:02:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/FileInputStream/</loc>
-        <lastmod>2020-04-05T03:02:51.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25AD%2597%25E7%25AC%25A6%25E7%25BC%2596%25E7%25A0%2581/</loc>
-        <lastmod>2020-04-05T02:57:58.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%258A%25E4%25BC%25A0/</loc>
-        <lastmod>2020-04-05T02:54:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JavaWeb/</loc>
-        <lastmod>2020-04-05T02:54:30.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2596%2587%25E4%25BB%25B6%25E4%25B8%258B%25E8%25BD%25BD/</loc>
-        <lastmod>2020-04-05T02:53:22.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%25A7%2586%25E5%259B%25BE%25E8%25A7%25A3%25E6%259E%2590%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-05T02:45:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25AD%2597%25E7%25AC%25A6%25E7%25BC%2596%25E7%25A0%2581%25E8%25BF%2587%25E6%25BB%25A4%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-05T02:45:23.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/MultipartResovler%25E8%25A7%25A3%25E6%259E%2590%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-05T02:37:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25BC%2582%25E5%25B8%25B8%25E8%25A7%25A3%25E6%259E%2590%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-05T02:37:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%2587%25AA%25E5%25AE%259A%25E4%25B9%2589%25E6%258B%25A6%25E6%2588%25AA%25E6%25A0%2588/</loc>
-        <lastmod>2020-04-05T02:36:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%258B%25A6%25E6%2588%25AA%25E6%25A0%2588/</loc>
-        <lastmod>2020-04-05T02:36:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%2587%25AA%25E5%25AE%259A%25E4%25B9%2589%25E6%258B%25A6%25E6%2588%25AA%25E5%2599%25A8/</loc>
-        <lastmod>2020-04-05T02:36:35.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25BC%2582%25E5%25B8%25B8%25E5%25A4%2584%25E7%2590%2586/</loc>
-        <lastmod>2020-04-05T02:35:01.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Junit/</loc>
-        <lastmod>2020-04-05T02:31:26.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2585%25A5%25E9%2597%25A8/</loc>
-        <lastmod>2020-04-05T02:30:36.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/STS/</loc>
-        <lastmod>2020-04-05T02:28:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Spring-Initializer/</loc>
-        <lastmod>2020-04-05T02:28:16.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/SpringBootApplication%25E6%25B3%25A8%25E8%25A7%25A3/</loc>
-        <lastmod>2020-04-05T02:26:06.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/HelloWorld/</loc>
-        <lastmod>2020-04-05T02:26:06.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -2574,125 +2728,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/jdk%25E7%259A%2584%25E5%25AE%2589%25E8%25A3%2585/</loc>
         <lastmod>2020-04-04T14:59:00.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Vue%25E6%25A6%2582%25E8%25BF%25B0/</loc>
-        <lastmod>2020-04-04T14:23:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25B2%25E6%259F%2593%25E6%2596%25B9%25E5%25BC%258F/</loc>
-        <lastmod>2020-04-04T14:22:52.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%2589%258D%25E7%25AB%25AF%25E6%25B8%25B2%25E6%259F%2593/</loc>
-        <lastmod>2020-04-04T14:22:52.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/v-once/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E5%2593%258D%25E5%25BA%2594%25E5%25BC%258F/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/v-pre/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/v-html/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/v-text/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2591%25E5%25AE%259A%25E6%258C%2587%25E4%25BB%25A4/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/v-cloak/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E6%258C%2587%25E4%25BB%25A4/</loc>
-        <lastmod>2020-04-04T14:22:25.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/MVVM/</loc>
-        <lastmod>2020-04-04T14:21:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/v-model/</loc>
-        <lastmod>2020-04-04T14:21:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%258F%258C%25E5%2590%2591%25E6%2595%25B0%25E6%258D%25AE%25E7%25BB%2591%25E5%25AE%259A/</loc>
-        <lastmod>2020-04-04T14:21:50.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2585%258D%25E7%25BD%25AEDruid%25E6%2595%25B0%25E6%258D%25AE%25E6%25BA%2590%25E7%259B%2591%25E6%258E%25A7/</loc>
-        <lastmod>2020-04-04T14:13:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%2585%258D%25E7%25BD%25AEDruid%25E6%2595%25B0%25E6%258D%25AE%25E6%25BA%2590/</loc>
-        <lastmod>2020-04-04T14:13:57.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/Druid/</loc>
-        <lastmod>2020-04-04T14:13:57.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -2945,41 +2980,6 @@
     <url>
         <loc>https://www.codekylin.cn/tags/body%25E6%25A0%2587%25E7%25AD%25BE/</loc>
         <lastmod>2020-04-04T14:10:42.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/JavaConfig/</loc>
-        <lastmod>2020-04-04T13:12:56.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%258D%25B8%25E8%25BD%25BD/</loc>
-        <lastmod>2020-04-04T13:10:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E5%25AE%2589%25E8%25A3%2585/</loc>
-        <lastmod>2020-04-04T13:10:28.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E8%2587%25AA%25E5%258A%25A8%25E9%2585%258D%25E7%25BD%25AE%25E5%258E%259F%25E7%2590%2586/</loc>
-        <lastmod>2020-04-04T13:08:31.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://www.codekylin.cn/tags/%25E9%259D%2599%25E6%2580%2581%25E8%25B5%2584%25E6%25BA%2590%25E6%2598%25A0%25E5%25B0%2584%25E8%25A7%2584%25E5%2588%2599/</loc>
-        <lastmod>2020-04-04T13:06:40.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
