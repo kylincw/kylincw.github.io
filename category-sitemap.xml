@@ -435,7 +435,7 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/%25E6%25B6%2588%25E6%2581%25AF%25E9%2598%259F%25E5%2588%2597/</loc>
+        <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/Oracle/</loc>
         <lastmod>2022-07-12T11:42:50.021Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -449,7 +449,7 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/%25E6%2595%25B0%25E6%258D%25AE%25E5%25BA%2593/Oracle/</loc>
+        <loc>https://www.codekylin.cn/categories/%25E6%25B6%2588%25E6%2581%25AF%25E9%2598%259F%25E5%2588%2597/</loc>
         <lastmod>2022-07-12T11:42:50.021Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -477,14 +477,14 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/SpringBoot/%25E5%2585%25A5%25E9%2597%25A8/</loc>
+        <loc>https://www.codekylin.cn/categories/SpringBoot/%25E5%258E%259F%25E7%2590%2586/</loc>
         <lastmod>2022-07-12T11:42:50.005Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/SpringBoot/%25E5%258E%259F%25E7%2590%2586/</loc>
+        <loc>https://www.codekylin.cn/categories/SpringBoot/%25E5%2585%25A5%25E9%2597%25A8/</loc>
         <lastmod>2022-07-12T11:42:50.005Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -547,14 +547,14 @@
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/SSM/SpringMVC/</loc>
+        <loc>https://www.codekylin.cn/categories/SpringCloud/%25E6%259C%258D%25E5%258A%25A1%25E8%25B0%2583%25E7%2594%25A8/</loc>
         <lastmod>2022-07-12T11:42:49.991Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://www.codekylin.cn/categories/SpringCloud/%25E6%259C%258D%25E5%258A%25A1%25E8%25B0%2583%25E7%2594%25A8/</loc>
+        <loc>https://www.codekylin.cn/categories/SSM/SpringMVC/</loc>
         <lastmod>2022-07-12T11:42:49.991Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
